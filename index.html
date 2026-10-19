@@ -1,498 +1,1775 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhajan Mandali | Code & Devotion</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Er Bhajan Mandali | High-Impact Engineering with Divine Peace</title>
     
+    <!-- Meta tags for social and sharing -->
+    <meta name="description" content="Er Bhajan Mandali - A premier remote trio of software engineers crafting enterprise Salesforce, cloud applications, and QA automation while spiritually grounded in Krishna bhajans.">
+    <meta name="theme-color" content="#080b14">
+
+    <!-- Fonts: Plus Jakarta Sans (Tech/Modern), Cinzel (Regal/Devotional), JetBrains Mono (Code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 Pro Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cinzel"', 'serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
                     },
                     colors: {
-                        brand: {
-                            50: '#fdf8f6',
-                            100: '#f2e8e5',
-                            200: '#eaddd7',
-                            300: '#e0cec7',
-                            400: '#d2bab0',
-                            500: '#a3705b', // primary accent (earthy/saffron vibe)
-                            600: '#8c5a46',
-                            700: '#693e2b',
-                            800: '#4a2c1e',
-                            900: '#2b1a11',
-                            dark: '#0f172a', // Deep slate for tech feel
+                        space: {
+                            950: '#04060a',
+                            900: '#070a13',
+                            850: '#0c111e',
+                            800: '#11182c',
+                            700: '#1b2542',
+                            600: '#28365e',
                         },
-                        tech: {
-                            light: '#e2e8f0',
-                            dark: '#1e293b'
+                        saffron: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        },
+                        peacock: {
+                            300: '#67e8f9',
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                        },
+                        lotus: {
+                            400: '#f472b6',
+                            500: '#ec4899',
+                            600: '#db2777',
+                        },
+                        aurora: {
+                            purple: '#8b5cf6',
+                            indigo: '#6366f1',
                         }
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float-delayed': 'float 7s ease-in-out 2s infinite',
+                        'spin-slow': 'spin 50s linear infinite',
+                        'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+                        'shimmer': 'shimmer 2.5s infinite linear',
+                        'wave': 'wave 1.2s ease-in-out infinite alternate',
                     },
                     keyframes: {
                         float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-14px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.08)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
                         }
                     }
                 }
             }
         }
     </script>
-    
+
     <style>
-        /* Custom scrollbar for tech feel */
+        /* Custom Modern Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 7px;
         }
         ::-webkit-scrollbar-track {
-            background: #0f172a; 
+            background: #070a13;
         }
         ::-webkit-scrollbar-thumb {
-            background: #a3705b; 
-            border-radius: 4px;
+            background: linear-gradient(to bottom, #f59e0b, #06b6d4);
+            border-radius: 9999px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #8c5a46; 
+            background: #fbbf24;
         }
-        
-        /* Gradient text utility */
-        .text-gradient {
-            background: linear-gradient(to right, #a3705b, #e0cec7);
+
+        /* Ambient Glow & Glass utilities */
+        .glass-panel {
+            background: rgba(12, 17, 30, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-panel-glow {
+            background: rgba(17, 24, 44, 0.65);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.08);
+        }
+        .glass-panel-glow:hover {
+            border-color: rgba(245, 158, 11, 0.45);
+            box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.2);
+        }
+
+        /* Divine Gradients */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fff7ed 0%, #fbbf24 45%, #f59e0b 70%, #d97706 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
-        .bg-pattern {
-            background-image: radial-gradient(rgba(163, 112, 91, 0.1) 1px, transparent 1px);
-            background-size: 24px 24px;
+        .peacock-gradient-text {
+            background: linear-gradient(135deg, #e0f2fe 0%, #38bdf8 40%, #06b6d4 70%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .divine-mesh {
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.12) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.08) 0px, transparent 50%);
+        }
+
+        /* Grid Pattern */
+        .tech-grid-pattern {
+            background-size: 36px 36px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Floating Lotus Petals on Click */
+        .petal-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            font-size: 20px;
+            animation: floatUpFade 1.6s ease-out forwards;
+        }
+        @keyframes floatUpFade {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(0.6) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(1.4) rotate(var(--rot));
+            }
         }
     </style>
 </head>
-<body class="bg-brand-dark text-gray-100 font-sans antialiased overflow-x-hidden selection:bg-brand-500 selection:text-white">
+<body class="bg-space-950 text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-saffron-500 selection:text-space-950 min-h-screen relative divine-mesh">
 
-    <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-brand-dark/80 border-b border-brand-500/20 px-6 py-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-om text-brand-500 text-2xl"></i>
-                <span class="font-serif font-bold text-xl tracking-wide text-white">Bhajan <span class="text-brand-500">Mandali</span></span>
+    <!-- Interactive Background Particles Canvas -->
+    <canvas id="sacredCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- TOP ANNOUNCEMENT BAR (Live Sync Status) -->
+    <div class="relative z-50 bg-gradient-to-r from-space-900 via-saffron-950/60 to-space-900 border-b border-saffron-500/20 px-4 py-2 text-xs">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center space-x-2 text-slate-300">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span class="font-mono text-emerald-400 font-bold uppercase tracking-wider text-[11px]">Daily Meet Active</span>
+                <span class="text-slate-500">|</span>
+                <span class="text-slate-300 hidden sm:inline"><i class="fa-solid fa-code-branch text-saffron-500 mr-1"></i> Sprint: Enterprise CRM & AI Automation</span>
             </div>
-            <div class="hidden md:flex space-x-8 text-sm font-semibold tracking-wider uppercase text-gray-300">
-                <a href="#about" class="hover:text-brand-400 transition-colors">Who We Are</a>
-                <a href="#work" class="hover:text-brand-400 transition-colors">Our Work</a>
-                <a href="#vibe" class="hover:text-brand-400 transition-colors">The Vibe</a>
-                <a href="#team" class="hover:text-brand-400 transition-colors">The Team</a>
-                <a href="#contact" class="hover:text-brand-400 transition-colors">Connect</a>
+            
+            <div class="flex items-center space-x-4 text-[11px] font-mono">
+                <div class="flex items-center text-saffron-300">
+                    <i class="fa-solid fa-music text-saffron-400 mr-1.5 animate-pulse"></i>
+                    <span class="hidden md:inline text-slate-400 mr-1">Sync Rhythm:</span>
+                    <span id="tickerTrack" class="text-saffron-300 font-medium">Shri Krishna Govind Hare Murari</span>
+                </div>
+                <button id="quickAmbientBtn" class="px-2.5 py-0.5 rounded-full bg-saffron-500/20 border border-saffron-500/40 text-saffron-300 hover:bg-saffron-500 hover:text-space-950 transition-all flex items-center gap-1.5">
+                    <i id="quickAmbientIcon" class="fa-solid fa-bell"></i>
+                    <span id="quickAmbientText">432Hz Ambient Focus</span>
+                </button>
             </div>
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-gray-300 hover:text-brand-500 focus:outline-none" id="mobile-menu-btn">
-                <i class="fa-solid fa-bars text-xl"></i>
-            </button>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-brand-dark border-b border-brand-500/20 py-4 px-6 flex flex-col space-y-4 shadow-xl">
-             <a href="#about" class="text-gray-300 hover:text-brand-400 text-sm font-semibold uppercase transition-colors">Who We Are</a>
-             <a href="#work" class="text-gray-300 hover:text-brand-400 text-sm font-semibold uppercase transition-colors">Our Work</a>
-             <a href="#vibe" class="text-gray-300 hover:text-brand-400 text-sm font-semibold uppercase transition-colors">The Vibe</a>
-             <a href="#team" class="text-gray-300 hover:text-brand-400 text-sm font-semibold uppercase transition-colors">The Team</a>
-             <a href="#contact" class="text-gray-300 hover:text-brand-400 text-sm font-semibold uppercase transition-colors">Connect</a>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="sticky top-0 z-40 backdrop-blur-xl bg-space-950/80 border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-3.5 flex justify-between items-center">
+            
+            <!-- BRAND LOGO -->
+            <a href="#" class="flex items-center space-x-3.5 group">
+                <!-- Custom Redesigned SVG Logo for Er Bhajan Mandali -->
+                <div class="relative w-11 h-11 flex items-center justify-center rounded-xl bg-gradient-to-br from-saffron-500/20 via-space-800 to-peacock-500/20 border border-saffron-500/40 group-hover:border-saffron-400 transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+                    <svg class="w-7 h-7 transform group-hover:scale-110 transition-transform duration-300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Code Curly Brace Left -->
+                        <path d="M26 28 C26 20, 18 20, 18 36 C18 44, 12 48, 8 50 C12 52, 18 56, 18 64 C18 80, 26 80, 26 72" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+                        <!-- Code Curly Brace Right -->
+                        <path d="M74 28 C74 20, 82 20, 82 36 C82 44, 88 48, 92 50 C88 52, 82 56, 82 64 C82 80, 74 80, 74 72" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+                        <!-- Divine Krishna Bansuri (Flute) -->
+                        <path d="M22 68 L78 32" stroke="url(#goldGrad)" stroke-width="6.5" stroke-linecap="round"/>
+                        <!-- Flute finger holes -->
+                        <circle cx="44" cy="54" r="2.2" fill="#04060a"/>
+                        <circle cx="52" cy="49" r="2.2" fill="#04060a"/>
+                        <circle cx="60" cy="44" r="2.2" fill="#04060a"/>
+                        <!-- Peacock Feather / Mor Pankh Crest -->
+                        <path d="M70 28 C74 15, 85 14, 88 20 C90 28, 79 34, 73 35 Z" fill="url(#peacockGrad)" opacity="0.9"/>
+                        <circle cx="80" cy="22" r="3.5" fill="#f59e0b"/>
+                        <circle cx="80" cy="22" r="1.5" fill="#04060a"/>
+                        <!-- Sacred Tilak / Bindu Top Accent -->
+                        <circle cx="50" cy="22" r="3.5" fill="#f59e0b" filter="drop-shadow(0 0 4px #fbbf24)"/>
+                        
+                        <defs>
+                            <linearGradient id="goldGrad" x1="20" y1="70" x2="80" y2="30" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#fbbf24"/>
+                                <stop offset="0.5" stop-color="#f59e0b"/>
+                                <stop offset="1" stop-color="#d97706"/>
+                            </linearGradient>
+                            <linearGradient id="peacockGrad" x1="68" y1="15" x2="90" y2="35" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#06b6d4"/>
+                                <stop offset="0.6" stop-color="#0284c7"/>
+                                <stop offset="1" stop-color="#10b981"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <!-- Glowing halo -->
+                    <div class="absolute inset-0 rounded-xl bg-saffron-500/10 blur-sm -z-10 group-hover:bg-saffron-500/25 transition-all"></div>
+                </div>
+
+                <div class="flex flex-col">
+                    <div class="flex items-center space-x-1.5">
+                        <span class="text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-saffron-500/20 text-saffron-300 border border-saffron-500/30">Er.</span>
+                        <span class="font-serif font-black text-xl tracking-wider text-white">Bhajan <span class="gold-gradient-text">Mandali</span></span>
+                    </div>
+                    <span class="text-[10px] font-mono tracking-widest uppercase text-slate-400 group-hover:text-peacock-300 transition-colors">
+                        Logic &bull; Devotion &bull; Engineering
+                    </span>
+                </div>
+            </a>
+
+            <!-- NAV LINKS -->
+            <div class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="#about" class="text-slate-300 hover:text-saffron-400 transition-colors flex items-center gap-1.5">
+                    <span class="text-saffron-500/70 font-mono text-xs">01.</span> Who We Are
+                </a>
+                <a href="#work" class="text-slate-300 hover:text-saffron-400 transition-colors flex items-center gap-1.5">
+                    <span class="text-saffron-500/70 font-mono text-xs">02.</span> Engineering Stack
+                </a>
+                <a href="#vibe" class="text-slate-300 hover:text-saffron-400 transition-colors flex items-center gap-1.5">
+                    <span class="text-saffron-500/70 font-mono text-xs">03.</span> The Vibe & Sound
+                </a>
+                <a href="#team" class="text-slate-300 hover:text-saffron-400 transition-colors flex items-center gap-1.5">
+                    <span class="text-saffron-500/70 font-mono text-xs">04.</span> The Triad
+                </a>
+                <a href="#ritual" class="text-slate-300 hover:text-saffron-400 transition-colors flex items-center gap-1.5">
+                    <span class="text-saffron-500/70 font-mono text-xs">05.</span> Daily Ritual
+                </a>
+            </div>
+
+            <!-- ACTION CTA & MOBILE MENU TOGGLE -->
+            <div class="flex items-center space-x-3">
+                <button id="japaCounterBtn" class="hidden sm:flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-space-850 hover:bg-space-800 border border-saffron-500/30 text-saffron-300 hover:text-saffron-200 text-xs font-semibold tracking-wide transition-all shadow-[0_0_15px_rgba(245,158,11,0.1)] active:scale-95">
+                    <i class="fa-solid fa-hands-praying text-saffron-400 animate-bounce"></i>
+                    <span>Chant: <strong id="mantraCount" class="text-white font-mono">108</strong></span>
+                </button>
+
+                <a href="https://microsoftedge.microsoft.com/addons/detail/saralforce/nabomjoibaaoialocfpphgcmfldjmeik" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-peacock-500 to-emerald-500 hover:from-peacock-400 hover:to-emerald-400 text-space-950 font-bold text-xs uppercase tracking-wider transition-all transform hover:-translate-y-0.5 shadow-lg shadow-peacock-500/25 gap-2 group">
+                    <i class="fa-brands fa-edge text-sm group-hover:rotate-12 transition-transform"></i>
+                    <span>Get SaralForce for Edge</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+
+                <button id="mobile-menu-btn" class="lg:hidden w-10 h-10 rounded-xl bg-space-850 border border-white/10 flex items-center justify-center text-slate-300 hover:text-saffron-400" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars-staggered text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU OVERLAY -->
+        <div id="mobile-menu" class="hidden lg:hidden border-b border-saffron-500/20 bg-space-900/95 backdrop-blur-2xl px-6 py-6 space-y-4">
+            <a href="#about" class="block text-slate-300 hover:text-saffron-400 font-medium py-1">01. Who We Are</a>
+            <a href="#work" class="block text-slate-300 hover:text-saffron-400 font-medium py-1">02. Engineering Stack</a>
+            <a href="#vibe" class="block text-slate-300 hover:text-saffron-400 font-medium py-1">03. The Vibe & Sound</a>
+            <a href="#team" class="block text-slate-300 hover:text-saffron-400 font-medium py-1">04. The Triad</a>
+            <a href="#ritual" class="block text-slate-300 hover:text-saffron-400 font-medium py-1">05. Daily Ritual</a>
+            <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
+                <a href="https://microsoftedge.microsoft.com/addons/detail/saralforce/nabomjoibaaoialocfpphgcmfldjmeik" target="_blank" rel="noopener noreferrer" class="w-full text-center py-2.5 rounded-xl bg-gradient-to-r from-peacock-500 to-emerald-500 text-space-950 font-bold text-sm flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-edge"></i>
+                    <span>Get SaralForce for Edge</span>
+                </a>
+            </div>
         </div>
     </nav>
 
-    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-pattern">
-        <!-- Abstract Tech/Devotion Background -->
-        <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
-            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-brand-500 rounded-full mix-blend-screen filter blur-[100px] animate-pulse-slow"></div>
-            <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-600 rounded-full mix-blend-screen filter blur-[120px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+    <!-- HERO SECTION -->
+    <header class="relative min-h-[92vh] flex items-center justify-center pt-12 pb-24 overflow-hidden tech-grid-pattern">
+        
+        <!-- Ambient Background Lights & Sacred Mandala Blur -->
+        <div class="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
+            <div class="w-[550px] h-[550px] rounded-full bg-saffron-500/15 blur-[140px] animate-pulse-glow"></div>
+            <div class="w-[600px] h-[600px] rounded-full bg-peacock-500/10 blur-[150px] -translate-x-48 translate-y-24"></div>
+            <div class="w-[450px] h-[450px] rounded-full bg-aurora-purple/10 blur-[140px] translate-x-48 -translate-y-20"></div>
+            <!-- Giant subtle rotating Sacred Wheel in background -->
+            <div class="absolute opacity-[0.025] animate-spin-slow">
+                <i class="fa-solid fa-dharmachakra text-[55rem] text-saffron-300"></i>
+            </div>
         </div>
 
-        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
-            <div class="inline-flex items-center space-x-2 bg-brand-900/50 border border-brand-500/30 rounded-full px-4 py-1.5 mb-8 animate-float">
-                <span class="relative flex h-3 w-3">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-500"></span>
+        <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
+            
+            <!-- Live Badge -->
+            <div class="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full glass-panel border border-saffron-500/30 mb-8 animate-float shadow-[0_0_25px_rgba(245,158,11,0.15)]">
+                <span class="flex h-2.5 w-2.5 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-saffron-400 opacity-80"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-saffron-500"></span>
                 </span>
-                <span class="text-xs font-semibold tracking-wider text-brand-200 uppercase">Currently Synced & Coding</span>
+                <span class="text-xs font-mono font-bold tracking-wider uppercase text-saffron-300">
+                    Remote Engineering Sanctuary &bull; 3 Minds in Divine Sync
+                </span>
             </div>
-            
-            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">
-                Where <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Logic</span> meets <br class="hidden md:block" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-brand-600 font-style: italic">Devotion.</span>
+
+            <!-- Hero Headline -->
+            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-black tracking-tight mb-8 leading-[1.08]">
+                Where <span class="peacock-gradient-text">Pure Logic</span><br class="hidden sm:block" />
+                Meets <span class="gold-gradient-text">Soulful Devotion.</span>
             </h1>
-            
-            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-                We are Bhajan Mandali. A remote trio of software engineers crafting enterprise solutions while anchored in the soulful rhythms of Krishna bhajans on our daily syncs.
+
+            <!-- Subtitle -->
+            <p class="text-lg md:text-2xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed mb-10">
+                We are <span class="text-white font-semibold underline decoration-saffron-500/50 underline-offset-4">Er Bhajan Mandali</span>. A dedicated remote trio of software engineers architecting enterprise CRM, cloud ecosystems, and intelligent test automation—anchored everyday in the sacred tranquility of Krishna Bhajans.
             </p>
-            
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="#about" class="px-8 py-3 bg-brand-600 hover:bg-brand-500 text-white rounded-lg font-medium transition-all transform hover:-translate-y-1 shadow-[0_0_20px_rgba(163,112,91,0.3)]">
-                    Discover Our Story
+
+            <!-- CTA Buttons & Live Audio Trigger -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <a href="#vibe" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-saffron-500 via-amber-500 to-saffron-600 hover:from-saffron-400 hover:to-amber-500 text-space-950 font-bold text-base transition-all transform hover:-translate-y-1 shadow-[0_0_35px_rgba(245,158,11,0.35)] flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-headphones-simple text-space-950"></i>
+                    <span>Experience The Daily Vibe</span>
                 </a>
-                <a href="#work" class="px-8 py-3 bg-transparent border border-gray-600 hover:border-brand-400 text-gray-300 hover:text-white rounded-lg font-medium transition-all">
-                    View Our Tech Stack
+
+                <a href="#work" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel hover:bg-space-800/80 border border-white/15 hover:border-peacock-400/50 text-white font-medium text-base transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-microchip text-peacock-400"></i>
+                    <span>Inspect Our Tech Stack</span>
                 </a>
+
+                <button onclick="document.getElementById('japaCounterBtn').click()" class="w-full sm:w-auto px-6 py-4 rounded-xl glass-panel hover:bg-space-800/80 border border-saffron-500/30 text-saffron-300 font-medium text-base transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-om text-saffron-400"></i>
+                    <span>Send Radhe Radhe</span>
+                </button>
             </div>
+
+            <!-- Floating Hero Stat Pill Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="glass-panel rounded-2xl p-4 text-center border border-white/5">
+                    <div class="text-2xl lg:text-3xl font-mono font-extrabold text-saffron-400">100%</div>
+                    <div class="text-xs uppercase font-mono tracking-wider text-slate-400 mt-1">Remote & Synced</div>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 text-center border border-white/5">
+                    <div class="text-2xl lg:text-3xl font-mono font-extrabold text-peacock-400">Salesforce</div>
+                    <div class="text-xs uppercase font-mono tracking-wider text-slate-400 mt-1">Enterprise Architecture</div>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 text-center border border-white/5">
+                    <div class="text-2xl lg:text-3xl font-mono font-extrabold text-aurora-purple">432 Hz</div>
+                    <div class="text-xs uppercase font-mono tracking-wider text-slate-400 mt-1">Devotional Caliber</div>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 text-center border border-white/5">
+                    <div class="text-2xl lg:text-3xl font-mono font-extrabold text-emerald-400">0% Burnout</div>
+                    <div class="text-xs uppercase font-mono tracking-wider text-slate-400 mt-1">Inner Peace Ratio</div>
+                </div>
+            </div>
+
         </div>
-        
-        <!-- Decorative scroll indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce flex flex-col items-center">
-            <span class="text-xs text-gray-500 mb-2 font-mono">Scroll</span>
-            <i class="fa-solid fa-arrow-down text-brand-500"></i>
-        </div>
+
+        <!-- Animated Bottom Chevron -->
+        <a href="#about" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-slate-500 hover:text-saffron-400 transition-colors animate-bounce">
+            <span class="text-[10px] font-mono tracking-widest uppercase mb-1">Enter Mandali</span>
+            <i class="fa-solid fa-angle-down text-saffron-500"></i>
+        </a>
     </header>
 
-    <section id="about" class="py-24 relative bg-gray-900 border-t border-gray-800">
+    <!-- SECTION: WHO WE ARE (The Philosophy) -->
+    <section id="about" class="py-28 relative border-t border-white/10 bg-space-900/60">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div class="order-2 md:order-1 relative group">
-                    <!-- Abstract representation of the trio -->
-                    <div class="aspect-square rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 p-8 relative overflow-hidden flex items-center justify-center">
-                        <div class="absolute inset-0 bg-pattern opacity-50"></div>
-                        
-                        <div class="relative z-10 flex space-x-4 items-end justify-center h-full pb-10">
-                            <!-- Dev 1 -->
-                            <div class="w-16 h-32 bg-brand-800/80 rounded-t-xl border border-brand-500/30 flex flex-col items-center justify-end pb-4 transition-transform group-hover:-translate-y-2">
-                                <i class="fa-solid fa-code text-brand-400 text-xl mb-2"></i>
-                            </div>
-                            <!-- Dev 2 -->
-                            <div class="w-16 h-48 bg-blue-900/50 rounded-t-xl border border-blue-500/30 flex flex-col items-center justify-end pb-4 transition-transform group-hover:-translate-y-4">
-                                <i class="fa-solid fa-music text-blue-400 text-xl mb-2"></i>
-                            </div>
-                            <!-- Dev 3 -->
-                            <div class="w-16 h-40 bg-brand-800/80 rounded-t-xl border border-brand-500/30 flex flex-col items-center justify-end pb-4 transition-transform group-hover:-translate-y-3">
-                                <i class="fa-solid fa-cloud text-brand-400 text-xl mb-2"></i>
-                            </div>
-                        </div>
-                        
-                        <!-- Sync Line -->
-                        <div class="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-500 to-transparent shadow-[0_0_10px_rgba(163,112,91,0.8)] opacity-50"></div>
-                    </div>
-                </div>
-                
-                <div class="order-1 md:order-2">
-                    <h2 class="text-sm font-bold tracking-widest text-brand-500 uppercase mb-3">Who We Are</h2>
-                    <h3 class="text-3xl md:text-4xl font-serif font-bold mb-6 text-white">Three Minds, One Call, Divine Harmony.</h3>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        Bhajan Mandali isn't just a group name; it's our daily reality. We are three dedicated software professionals who have found the perfect balance between high-stakes development and mental tranquility. 
-                    </p>
-                    <p class="text-gray-400 mb-8 leading-relaxed">
-                        Working remotely, we stay synced on an ongoing collaborative call. While we architect databases, debug complex logic, and deploy applications, the background is filled with the soothing, spiritual sounds of Krishna bhajans. It keeps us grounded, focused, and connected—not just to the code, but to a higher sense of peace.
-                    </p>
-                    
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-900/50 border border-brand-500/30 flex items-center justify-center mr-4">
-                                <i class="fa-solid fa-check text-brand-400 text-sm"></i>
-                            </span>
-                            <span class="text-gray-300 mt-1">100% Remote Collaborative Workflow</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-900/50 border border-brand-500/30 flex items-center justify-center mr-4">
-                                <i class="fa-solid fa-headphones text-brand-400 text-sm"></i>
-                            </span>
-                            <span class="text-gray-300 mt-1">Continuous Audio Sync & Knowledge Sharing</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-900/50 border border-brand-500/30 flex items-center justify-center mr-4">
-                                <i class="fa-solid fa-om text-brand-400 text-sm"></i>
-                            </span>
-                            <span class="text-gray-300 mt-1">Stress-free environment driven by devotional music</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="work" class="py-24 relative bg-brand-dark">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-sm font-bold tracking-widest text-blue-400 uppercase mb-3">Our Expertise</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Enterprise Grade Solutions</h3>
-                <p class="text-gray-400 max-w-2xl mx-auto">We specialize in building robust, scalable applications tailored for business needs.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Tech Card 1 -->
-                <div class="bg-gray-900/50 border border-gray-800 hover:border-blue-500/50 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 group">
-                    <div class="w-14 h-14 rounded-xl bg-blue-900/30 text-blue-400 flex items-center justify-center text-2xl mb-6 border border-blue-500/20 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                        <i class="fa-brands fa-salesforce"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-3">Salesforce Development</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Custom Apex triggers, Lightning Web Components (LWC), API integrations, and complex workflows to optimize CRM processes and data management.
-                    </p>
-                </div>
-
-                <!-- Tech Card 2 -->
-                <div class="bg-gray-900/50 border border-gray-800 hover:border-brand-500/50 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 group">
-                    <div class="w-14 h-14 rounded-xl bg-brand-900/30 text-brand-400 flex items-center justify-center text-2xl mb-6 border border-brand-500/20 group-hover:bg-brand-500 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-server"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-3">In-House Enterprise Apps</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        End-to-end development of proprietary internal tools, dashboards, and automated systems tailored specifically to unique organizational requirements.
-                    </p>
-                </div>
-
-                <!-- Tech Card 3 -->
-                <div class="bg-gray-900/50 border border-gray-800 hover:border-blue-500/50 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 group">
-                    <div class="w-14 h-14 rounded-xl bg-blue-900/30 text-blue-400 flex items-center justify-center text-2xl mb-6 border border-blue-500/20 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-laptop-code"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-3">Full-Stack Solutions</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Architecting modern web applications with scalable backends and intuitive frontends, ensuring seamless user experiences and robust performance.
-                    </p>
-                </div>
-            </div>
             
-            <!-- Terminal/Code snippet visual -->
-            <div class="mt-16 bg-gray-950 rounded-xl border border-gray-800 overflow-hidden shadow-2xl max-w-4xl mx-auto">
-                <div class="flex items-center px-4 py-3 bg-gray-900 border-b border-gray-800">
-                    <div class="flex space-x-2">
-                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                    </div>
-                    <div class="mx-auto text-xs text-gray-500 font-mono">bhajan_mandali_sync.js</div>
-                </div>
-                <div class="p-6 overflow-x-auto text-sm md:text-base font-mono text-gray-300 leading-relaxed">
-<pre><code><span class="text-blue-400">const</span> <span class="text-yellow-300">BhajanMandali</span> = {
-    <span class="text-blue-300">teamSize</span>: <span class="text-brand-400">3</span>,
-    <span class="text-blue-300">status</span>: <span class="text-green-400">'Online & Synced'</span>,
-    <span class="text-blue-300">currentTrack</span>: <span class="text-green-400">'Achyutam Keshavam'</span>,
-    
-    <span class="text-blue-200">startDailyGrind</span>: <span class="text-blue-400">function</span>() {
-        <span class="text-blue-400">try</span> {
-            <span class="text-brand-400">this</span>.joinCall();
-            <span class="text-brand-400">this</span>.playBackgroundMusic(<span class="text-brand-400">this</span>.currentTrack);
-            <span class="text-brand-400">this</span>.executeSprints();
-        } <span class="text-blue-400">catch</span> (error) {
-            <span class="text-gray-500">// We just breathe and chant Om</span>
-            <span class="text-blue-400">return</span> <span class="text-green-400">'Inner Peace Maintained'</span>;
-        }
-    }
-};
-
-<span class="text-yellow-300">BhajanMandali</span>.startDailyGrind(); <span class="text-gray-500">// Compiling...</span></code></pre>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="vibe" class="py-24 relative bg-gray-900 overflow-hidden">
-        <!-- Background mandala/pattern hint -->
-        <div class="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
-            <i class="fa-solid fa-dharmachakra text-[40rem] text-brand-500 animate-[spin_60s_linear_infinite]"></i>
-        </div>
-
-        <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-sm font-bold tracking-widest text-brand-500 uppercase mb-3">The Atmosphere</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Coding with Soul</h3>
-                <p class="text-gray-400 max-w-2xl mx-auto">The tech industry moves fast. We counter the chaos with a rhythm of our own.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <div class="bg-brand-dark/50 p-6 rounded-2xl border border-gray-800 backdrop-blur-sm">
-                        <h4 class="text-lg font-serif font-semibold text-brand-300 mb-2 flex items-center">
-                            <i class="fa-solid fa-music mr-3 text-brand-500"></i> The Soundtrack
-                        </h4>
-                        <p class="text-gray-400 text-sm">
-                            From morning stand-ups to late-night deployments, our shared audio space is filled with Krishna bhajans, classical instrumentals, and chants. It provides a non-intrusive, calming backdrop that enhances focus rather than distracting from it.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-brand-dark/50 p-6 rounded-2xl border border-gray-800 backdrop-blur-sm">
-                        <h4 class="text-lg font-serif font-semibold text-brand-300 mb-2 flex items-center">
-                            <i class="fa-solid fa-people-group mr-3 text-brand-500"></i> The Synergy
-                        </h4>
-                        <p class="text-gray-400 text-sm">
-                            Being on a constant call isn't about micromanagement; it's about presence. We debug together, brainstorm instantly, or simply work in companionable silence, united by the same audio stream and goals.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Abstract Audio Visualizer UI -->
-                <div class="bg-gray-950 p-8 rounded-3xl border border-gray-800 shadow-2xl relative">
-                    <div class="flex justify-between items-center mb-8 border-b border-gray-800 pb-4">
-                        <div>
-                            <p class="text-xs text-gray-500 font-mono mb-1">NOW PLAYING IN SYNC CALL</p>
-                            <p class="text-white font-semibold">Shri Krishna Govind Hare Murari</p>
-                            <p class="text-brand-400 text-sm">Bhajan Mandali Playlist</p>
-                        </div>
-                        <div class="w-12 h-12 rounded-full bg-brand-900/50 border border-brand-500/30 flex items-center justify-center animate-pulse">
-                            <i class="fa-solid fa-volume-high text-brand-500"></i>
-                        </div>
-                    </div>
-                    
-                    <!-- Fake Visualizer Bars -->
-                    <div class="flex items-end justify-between h-24 gap-1 mb-6">
-                        <div class="w-full bg-brand-500/80 rounded-t-sm h-[20%] animate-[pulse_1s_ease-in-out_infinite]"></div>
-                        <div class="w-full bg-brand-500/80 rounded-t-sm h-[50%] animate-[pulse_1.2s_ease-in-out_infinite_0.1s]"></div>
-                        <div class="w-full bg-brand-500/60 rounded-t-sm h-[30%] animate-[pulse_0.9s_ease-in-out_infinite_0.2s]"></div>
-                        <div class="w-full bg-brand-500/90 rounded-t-sm h-[80%] animate-[pulse_1.5s_ease-in-out_infinite_0.3s]"></div>
-                        <div class="w-full bg-blue-500/80 rounded-t-sm h-[60%] animate-[pulse_1.1s_ease-in-out_infinite_0.4s]"></div>
-                        <div class="w-full bg-blue-500/60 rounded-t-sm h-[40%] animate-[pulse_1.3s_ease-in-out_infinite_0.5s]"></div>
-                        <div class="w-full bg-brand-500/80 rounded-t-sm h-[70%] animate-[pulse_1s_ease-in-out_infinite_0.6s]"></div>
-                        <div class="w-full bg-brand-500/70 rounded-t-sm h-[90%] animate-[pulse_1.4s_ease-in-out_infinite_0.7s]"></div>
-                        <div class="w-full bg-brand-500/80 rounded-t-sm h-[30%] animate-[pulse_1.2s_ease-in-out_infinite_0.8s]"></div>
-                        <div class="w-full bg-brand-500/60 rounded-t-sm h-[50%] animate-[pulse_0.9s_ease-in-out_infinite_0.9s]"></div>
-                        <div class="w-full bg-blue-500/80 rounded-t-sm h-[20%] animate-[pulse_1.1s_ease-in-out_infinite_1s]"></div>
-                        <div class="w-full bg-brand-500/80 rounded-t-sm h-[40%] animate-[pulse_1s_ease-in-out_infinite_1.1s]"></div>
-                    </div>
-                    
-                    <!-- Fake controls -->
-                    <div class="flex justify-center items-center space-x-6 text-gray-400">
-                        <i class="fa-solid fa-backward-step hover:text-white cursor-pointer transition-colors"></i>
-                        <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 cursor-pointer transition-colors text-white">
-                            <i class="fa-solid fa-pause"></i>
-                        </div>
-                        <i class="fa-solid fa-forward-step hover:text-white cursor-pointer transition-colors"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="team" class="py-24 relative bg-gray-900 border-t border-gray-800">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-sm font-bold tracking-widest text-brand-500 uppercase mb-3">The Triad</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Meet the Mandali</h3>
-                <p class="text-gray-400 max-w-2xl mx-auto">Three distinct personas operating in seamless synchrony.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Bhavya -->
-                <div class="group relative rounded-2xl bg-brand-dark/40 border border-gray-800 p-8 hover:bg-brand-dark/80 transition-all duration-500 hover:-translate-y-2 flex flex-col items-center text-center shadow-lg backdrop-blur-sm overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-b from-brand-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    <!-- Abstract Avatar -->
-                    <div class="w-24 h-24 rounded-full mb-6 relative flex items-center justify-center bg-gray-800 border border-brand-500/30 group-hover:border-brand-500/60 transition-colors">
-                        <svg class="w-10 h-10 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                        </svg>
-                        <div class="absolute -bottom-1 -right-1 w-7 h-7 bg-brand-500 rounded-full border-2 border-gray-900 flex items-center justify-center">
-                            <i class="fa-solid fa-code text-[10px] text-white"></i>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-serif font-bold text-white mb-1 relative z-10">Bhavya</h3>
-                    <div class="h-px w-12 bg-gray-700 my-3 relative z-10 group-hover:bg-brand-500/50 transition-colors"></div>
-                    <p class="text-brand-300 text-sm font-semibold tracking-wide mb-2 relative z-10">Salesforce Developer</p>
-                    <p class="text-gray-400 text-sm italic relative z-10">"The Meme & Dialogue Artist"</p>
-                </div>
-
-                <!-- Shivam -->
-                <div class="group relative rounded-2xl bg-brand-dark/40 border border-gray-800 p-8 hover:bg-brand-dark/80 transition-all duration-500 hover:-translate-y-2 flex flex-col items-center text-center shadow-lg backdrop-blur-sm overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    <!-- Abstract Avatar -->
-                    <div class="w-24 h-24 rounded-full mb-6 relative flex items-center justify-center bg-gray-800 border border-blue-500/30 group-hover:border-blue-500/60 transition-colors">
-                        <svg class="w-10 h-10 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
-                        </svg>
-                         <div class="absolute -bottom-1 -right-1 w-7 h-7 bg-blue-500 rounded-full border-2 border-gray-900 flex items-center justify-center">
-                            <i class="fa-brands fa-salesforce text-[10px] text-white"></i>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-serif font-bold text-white mb-1 relative z-10">Shivam</h3>
-                    <div class="h-px w-12 bg-gray-700 my-3 relative z-10 group-hover:bg-blue-500/50 transition-colors"></div>
-                    <p class="text-blue-300 text-sm font-semibold tracking-wide mb-2 relative z-10">Salesforce Developer</p>
-                    <p class="text-gray-400 text-sm italic relative z-10">"The Host"</p>
-                </div>
-
-                <!-- Rakesh -->
-                <div class="group relative rounded-2xl bg-brand-dark/40 border border-gray-800 p-8 hover:bg-brand-dark/80 transition-all duration-500 hover:-translate-y-2 flex flex-col items-center text-center shadow-lg backdrop-blur-sm overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-b from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    <!-- Abstract Avatar -->
-                    <div class="w-24 h-24 rounded-full mb-6 relative flex items-center justify-center bg-gray-800 border border-purple-500/30 group-hover:border-purple-500/60 transition-colors">
-                        <svg class="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
-                         <div class="absolute -bottom-1 -right-1 w-7 h-7 bg-purple-500 rounded-full border-2 border-gray-900 flex items-center justify-center">
-                            <i class="fa-solid fa-robot text-[10px] text-white"></i>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-serif font-bold text-white mb-1 relative z-10">Rakesh</h3>
-                    <div class="h-px w-12 bg-gray-700 my-3 relative z-10 group-hover:bg-purple-500/50 transition-colors"></div>
-                    <p class="text-purple-300 text-sm font-semibold tracking-wide mb-2 relative z-10">Salesforce Automation QA</p>
-                    <p class="text-gray-400 text-sm italic relative z-10">"AI Enthusiast"</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="bg-brand-dark pt-20 pb-10 border-t border-gray-800 relative">
-        <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-center md:items-start mb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
                 
-                <div class="mb-10 md:mb-0 text-center md:text-left">
-                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
-                        <i class="fa-solid fa-om text-brand-500 text-2xl"></i>
-                        <span class="font-serif font-bold text-2xl tracking-wide text-white">Bhajan <span class="text-brand-500">Mandali</span></span>
+                <!-- Left Column: Visual Synthesis of 3 Engineers in Sacred Sync -->
+                <div class="lg:col-span-5 relative">
+                    <!-- Glowing frame -->
+                    <div class="relative rounded-3xl glass-panel-glow p-8 overflow-hidden">
+                        <div class="absolute top-0 right-0 w-44 h-44 bg-saffron-500/10 rounded-full blur-2xl"></div>
+                        <div class="absolute bottom-0 left-0 w-44 h-44 bg-peacock-500/10 rounded-full blur-2xl"></div>
+                        
+                        <!-- Header of card -->
+                        <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-6 font-mono text-xs text-slate-400">
+                            <span class="flex items-center gap-2">
+                                <i class="fa-solid fa-satellite-dish text-emerald-400 animate-pulse"></i>
+                                LIVE AUDIO DISCORD / MEET
+                            </span>
+                            <span class="text-saffron-400 font-semibold">24/7 SYNC</span>
+                        </div>
+
+                        <!-- Trio Visual Diagram -->
+                        <div class="space-y-4">
+                            <!-- Member 1: Rakesh Sharma -->
+                            <div class="p-3.5 rounded-2xl bg-space-850/80 border border-aurora-purple/20 flex items-center justify-between hover:border-aurora-purple/50 transition-colors">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-xl bg-aurora-purple/20 border border-aurora-purple/30 flex items-center justify-center text-aurora-purple">
+                                        <i class="fa-solid fa-robot"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-sm text-white flex items-center gap-1.5">
+                                            Rakesh Sharma
+                                            <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-aurora-purple/20 text-purple-300">AI & QA</span>
+                                        </div>
+                                        <div class="text-xs text-slate-400 italic">"The Edge-Case Hunter"</div>
+                                    </div>
+                                </div>
+                                <span class="text-emerald-400 text-xs font-mono"><i class="fa-solid fa-check-double"></i> Automated</span>
+                            </div>
+
+                            <!-- Member 2: Shivam -->
+                            <div class="p-3.5 rounded-2xl bg-space-850/80 border border-peacock-500/20 flex items-center justify-between hover:border-peacock-400/50 transition-colors">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-xl bg-peacock-500/20 border border-peacock-500/30 flex items-center justify-center text-peacock-400">
+                                        <i class="fa-brands fa-salesforce"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-sm text-white flex items-center gap-1.5">
+                                            Shivam
+                                            <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-peacock-500/20 text-peacock-300">Mandali Host</span>
+                                        </div>
+                                        <div class="text-xs text-slate-400 italic">"The Steady Anchor"</div>
+                                    </div>
+                                </div>
+                                <span class="text-emerald-400 text-xs font-mono"><i class="fa-solid fa-microphone-lines"></i> Streaming</span>
+                            </div>
+
+                            <!-- Member 3: Bhavya -->
+                            <div class="p-3.5 rounded-2xl bg-space-850/80 border border-saffron-500/20 flex items-center justify-between hover:border-saffron-400/50 transition-colors">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-xl bg-saffron-500/20 border border-saffron-500/30 flex items-center justify-center text-saffron-400">
+                                        <i class="fa-solid fa-code"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-sm text-white flex items-center gap-1.5">
+                                            Bhavya
+                                            <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-saffron-500/20 text-saffron-300">Apex & LWC</span>
+                                        </div>
+                                        <div class="text-xs text-slate-400 italic">"The Dialogue Maestro"</div>
+                                    </div>
+                                </div>
+                                <span class="text-emerald-400 text-xs font-mono"><i class="fa-solid fa-waveform"></i> Audio On</span>
+                            </div>
+                        </div>
+
+                        <!-- Sacred Mantra Bridge Bar -->
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+                            <span class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-om text-saffron-400"></i>
+                                <span>Chant Frequency: <strong>Hare Krishna</strong></span>
+                            </span>
+                            <span class="text-peacock-400 font-mono">Ping: 12ms</span>
+                        </div>
                     </div>
-                    <p class="text-gray-400 text-sm max-w-xs">
-                        Building enterprise software while staying spiritually grounded. 
+                </div>
+
+                <!-- Right Column: Narrative Copy -->
+                <div class="lg:col-span-7">
+                    <div class="inline-flex items-center space-x-2 text-saffron-400 font-mono text-xs uppercase tracking-widest mb-3">
+                        <i class="fa-solid fa-sun text-saffron-400"></i>
+                        <span>The Er Bhajan Mandali Doctrine</span>
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-black text-white mb-6 leading-tight">
+                        Three Minds. One Virtual Room.<br />
+                        <span class="gold-gradient-text">Unshakable Divine Harmony.</span>
+                    </h2>
+
+                    <p class="text-slate-300 text-base md:text-lg leading-relaxed mb-6 font-light">
+                        In an industry rife with high stress, relentless sprint deadlines, and remote isolation, <strong>Er Bhajan Mandali</strong> discovered an extraordinary formula:
+                        <strong>Devotion as our Operating System.</strong>
                     </p>
+
+                    <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-8">
+                        We work completely remote yet stay continually connected on a shared, open audio channel throughout our working hours. In the background plays an uninterrupted, serene stream of Krishna bhajans, classical tanpura, and flute chants. We solve enterprise architectural puzzles, refactor Salesforce codebases, build custom enterprise utilities, and catch critical edge cases—all while basking in calm spiritual vibrations.
+                    </p>
+
+                    <!-- Core Pillars -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl glass-panel border border-white/5 flex items-start space-x-3.5">
+                            <div class="w-9 h-9 rounded-lg bg-saffron-500/10 border border-saffron-500/30 flex items-center justify-center text-saffron-400 shrink-0">
+                                <i class="fa-solid fa-headset text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm mb-1">Companionable Silence</h4>
+                                <p class="text-slate-400 text-xs leading-normal">Instant pair debugging and camaraderie without the fatigue of formal meetings.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl glass-panel border border-white/5 flex items-start space-x-3.5">
+                            <div class="w-9 h-9 rounded-lg bg-peacock-500/10 border border-peacock-500/30 flex items-center justify-center text-peacock-400 shrink-0">
+                                <i class="fa-solid fa-shield-halved text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm mb-1">Ego-Free Code Reviews</h4>
+                                <p class="text-slate-400 text-xs leading-normal">Spiritual grounding keeps teamwork selfless, transparent, and joyful.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="text-center md:text-right">
-                    <h4 class="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Placeholder for Future Connect</h4>
-                    <p class="text-gray-500 text-sm mb-4">Contact forms and social links will be integrated here.</p>
-                    <a href="mailto:hello@bhajanmandali.example.com" class="inline-flex items-center space-x-2 text-brand-400 hover:text-brand-300 transition-colors">
-                        <i class="fa-regular fa-envelope"></i>
-                        <span>hello@bhajanmandali.example.com</span>
-                    </a>
-                </div>
+
             </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: OUR WORK & ENGINEERING EXPERTISE -->
+    <section id="work" class="py-28 relative tech-grid-pattern bg-space-950">
+        <div class="max-w-6xl mx-auto px-6">
             
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-600 text-sm mb-4 md:mb-0">
-                    &copy; <span id="year"></span> Bhajan Mandali. All rights reserved.
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 text-peacock-400 font-mono text-xs uppercase tracking-widest mb-3">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span>Engineered For Enterprise Scale</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-black text-white mb-4">
+                    Enterprise Code. <span class="peacock-gradient-text">Mission-Critical Delivery.</span>
+                </h2>
+                <p class="text-slate-400 text-sm md:text-base">
+                    Behind the peaceful bhajans is razor-sharp technical rigor. We design, optimize, and fortify enterprise platforms with zero compromise on quality.
                 </p>
-                <div class="flex space-x-4 text-gray-600 text-sm">
-                    <span class="flex items-center"><i class="fa-solid fa-code mr-2"></i> Developed with devotion.</span>
+            </div>
+
+            <!-- Tech Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                
+                <!-- Card 1: Salesforce Development -->
+                <div class="group rounded-3xl glass-panel p-8 border border-white/10 hover:border-peacock-400/50 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-32 h-32 bg-peacock-500/10 rounded-full blur-2xl group-hover:bg-peacock-500/20 transition-all"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-peacock-500/10 border border-peacock-500/30 flex items-center justify-center text-peacock-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-salesforce"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-peacock-300 transition-colors">Salesforce Architecture</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Scalable Apex triggers, highly responsive Lightning Web Components (LWC), seamless REST/SOAP integrations, and custom CRM workflows tailored for heavy transaction loads.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5 font-mono text-[11px]">
+                        <span class="px-2.5 py-1 rounded-md bg-peacock-500/10 text-peacock-300">Apex</span>
+                        <span class="px-2.5 py-1 rounded-md bg-peacock-500/10 text-peacock-300">LWC</span>
+                        <span class="px-2.5 py-1 rounded-md bg-peacock-500/10 text-peacock-300">Flows</span>
+                        <span class="px-2.5 py-1 rounded-md bg-peacock-500/10 text-peacock-300">REST APIs</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Enterprise Internal Tools -->
+                <div class="group rounded-3xl glass-panel p-8 border border-white/10 hover:border-saffron-400/50 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-32 h-32 bg-saffron-500/10 rounded-full blur-2xl group-hover:bg-saffron-500/20 transition-all"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-saffron-500/10 border border-saffron-500/30 flex items-center justify-center text-saffron-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-saffron-300 transition-colors">In-House Enterprise Apps</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Building bespoke internal tools, executive metric dashboards, automated sync bridges, and enterprise micro-utilities that streamline complex organizational operations.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5 font-mono text-[11px]">
+                        <span class="px-2.5 py-1 rounded-md bg-saffron-500/10 text-saffron-300">Full-Stack</span>
+                        <span class="px-2.5 py-1 rounded-md bg-saffron-500/10 text-saffron-300">Node / Py</span>
+                        <span class="px-2.5 py-1 rounded-md bg-saffron-500/10 text-saffron-300">PostgreSQL</span>
+                        <span class="px-2.5 py-1 rounded-md bg-saffron-500/10 text-saffron-300">Webhooks</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: QA Automation & AI -->
+                <div class="group rounded-3xl glass-panel p-8 border border-white/10 hover:border-aurora-purple/50 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-32 h-32 bg-aurora-purple/10 rounded-full blur-2xl group-hover:bg-aurora-purple/20 transition-all"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-aurora-purple/10 border border-aurora-purple/30 flex items-center justify-center text-aurora-purple text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-vial-circle-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">QA Automation & AI</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Bulletproof test automation pipelines with Selenium, Cypress & Playwright, combined with modern LLM-assisted code inspection to detect regressions before they surface.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5 font-mono text-[11px]">
+                        <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300">Playwright</span>
+                        <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300">Cypress</span>
+                        <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300">CI/CD</span>
+                        <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300">LLM Evals</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- INTERACTIVE MANDALI CODE TERMINAL -->
+            <div class="max-w-4xl mx-auto rounded-2xl glass-panel border border-white/15 overflow-hidden shadow-2xl">
+                <!-- Terminal Header Bar -->
+                <div class="bg-space-900 px-4 py-3 border-b border-white/10 flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                        <span class="ml-2 text-xs font-mono text-slate-400">mandali-engine v2.6 // Krishna Bhakti Runtime</span>
+                    </div>
+
+                    <!-- Code Tabs -->
+                    <div class="flex space-x-1 font-mono text-xs">
+                        <button onclick="switchTab('apex')" id="tab-apex" class="px-3 py-1 rounded-md bg-space-800 text-saffron-300 font-semibold border border-saffron-500/30">ApexSync.cls</button>
+                        <button onclick="switchTab('ts')" id="tab-ts" class="px-3 py-1 rounded-md text-slate-400 hover:text-white">BhajanSync.ts</button>
+                        <button onclick="switchTab('qa')" id="tab-qa" class="px-3 py-1 rounded-md text-slate-400 hover:text-white">AutomationQA.spec.ts</button>
+                    </div>
+                </div>
+
+                <!-- Terminal Content Screen -->
+                <div class="p-6 bg-space-950 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto min-h-[220px]">
+                    <div id="code-content">
+                        <!-- Apex Snippet -->
+<pre><code class="text-slate-300"><span class="text-aurora-purple font-bold">public class</span> <span class="text-saffron-400 font-bold">ErBhajanMandaliHandler</span> {
+    <span class="text-slate-500">// Invoked during high-load sprint deployment</span>
+    <span class="text-peacock-400">@InvocableMethod</span>(label=<span class="text-emerald-300">'Execute Devotion & Logic'</span>)
+    <span class="text-aurora-purple font-bold">public static void</span> <span class="text-blue-400">maintainSprintPeace</span>(List&lt;Id&gt; sprintIds) {
+        Boolean isCallActive = <span class="text-amber-400">true</span>;
+        String currentBhajan = <span class="text-emerald-300">'Achyutam Keshavam'</span>;
+        
+        <span class="text-aurora-purple">for</span> (Id sprintId : sprintIds) {
+            System.debug(LoggingLevel.INFO, <span class="text-emerald-300">'Rakesh Sharma automating QA • Shivam orchestrating • Bhavya writing LWC'</span>);
+        }
+        <span class="text-slate-500">// Result: Zero production bugs, 100% serene minds.</span>
+    }
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Interactive Terminal Footer -->
+                <div class="bg-space-900/80 px-6 py-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+                    <span id="testRunStatus" class="text-emerald-400 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check"></i> All 108 test suites passing (100% coverage)
+                    </span>
+                    <button onclick="simulateRun()" class="px-3 py-1 rounded bg-saffron-500/20 hover:bg-saffron-500/40 text-saffron-300 border border-saffron-500/30 transition-colors">
+                        <i class="fa-solid fa-play text-[10px] mr-1"></i> Re-Run Suite
+                    </button>
                 </div>
             </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: THE VIBE & SACRED SOUNDTRACK (Player + Atmosphere) -->
+    <section id="vibe" class="py-28 relative border-t border-white/10 bg-gradient-to-b from-space-950 via-space-900 to-space-950 overflow-hidden">
+        
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 text-saffron-400 font-mono text-xs uppercase tracking-widest mb-3">
+                    <i class="fa-solid fa-om text-saffron-400"></i>
+                    <span>The Bhajan Mandali Frequency</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-black text-white mb-4">
+                    The Soundtrack of <span class="gold-gradient-text">Our Daily Sync.</span>
+                </h2>
+                <p class="text-slate-400 text-sm md:text-base">
+                    Every morning standup, afternoon refactor, and midnight deployment happens to the rhythm of Krishna bhajans. Listen to our active playlist and experience the exact frequency we code in.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left: The Vibe Philosophy -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-panel rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-saffron-500/20 border border-saffron-500/30 flex items-center justify-center text-saffron-400">
+                                <i class="fa-solid fa-flute fa-music"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-white">Why Bhajans in Tech?</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Coding is cognitive, intensive, and prone to rapid burnout. Devotional music stimulates theta and alpha brain waves, creating a calm, high-focus flow state where complex logic feels natural and effortless.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-peacock-500/20 border border-peacock-500/30 flex items-center justify-center text-peacock-400">
+                                <i class="fa-solid fa-users-viewfinder"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-white">The Continuous Call</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            We don't schedule disjointed 15-minute meetings. Our call is an open virtual sanctum. Whenever an engineer needs an architectural second opinion or wants to share a funny meme, they speak without friction.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Sacred Audio Console -->
+                <div class="lg:col-span-7">
+                    <div class="rounded-3xl glass-panel-glow p-8 border border-saffron-500/30 shadow-2xl relative overflow-hidden">
+                        
+                        <!-- Track Info Bar -->
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-white/10">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-saffron-500 to-amber-600 flex items-center justify-center text-space-950 text-2xl shadow-lg shadow-saffron-500/25 shrink-0">
+                                    <i class="fa-solid fa-om text-2xl"></i>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-[10px] font-mono tracking-widest uppercase text-saffron-400 bg-saffron-500/10 px-2 py-0.5 rounded border border-saffron-500/20">Now Streaming</span>
+                                        <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20"><i class="fa-solid fa-circle-play mr-1"></i> B Praak</span>
+                                    </div>
+                                    <h4 id="playerTrackTitle" class="text-xl font-bold text-white mt-1">Baraj Ras</h4>
+                                    <p id="playerTrackSubtitle" class="text-xs text-slate-400 font-mono">B Praak &amp; Jaani &bull; Sacred Vrindavan Sankirtan</p>
+                                </div>
+                            </div>
+
+                            <!-- Spotify & YouTube Streaming Quick Links -->
+                            <div class="flex items-center space-x-2 shrink-0">
+                                <a id="spotifyLink" href="https://open.spotify.com/search/Braj%20Ras%20B%20Praak" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-xl bg-[#1DB954]/15 hover:bg-[#1DB954] text-[#1DB954] hover:text-space-950 border border-[#1DB954]/40 font-mono text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm group">
+                                    <i class="fa-brands fa-spotify text-sm group-hover:scale-110 transition-transform"></i>
+                                    <span>Spotify</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
+                                </a>
+                                <button onclick="toggleVideoMode()" id="streamModeBtn" class="px-2.5 py-1.5 rounded-xl bg-saffron-500/15 hover:bg-saffron-500 text-saffron-300 hover:text-space-950 border border-saffron-500/40 font-mono text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+                                    <i class="fa-solid fa-circle-play text-sm"></i>
+                                    <span id="streamModeBtnText">Play Official Song</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Embedded Real Audio/Video Stream (B Praak - Braj Ras) -->
+                        <div id="videoContainer" class="hidden mb-6 bg-space-950 rounded-2xl overflow-hidden border border-saffron-500/30 aspect-video relative shadow-2xl">
+                            <iframe id="officialStreamFrame" class="w-full h-full" src="" title="Braj Ras by B Praak" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+
+                        <!-- Audio Visualizer Canvas -->
+                        <div id="visualizerContainer" class="mb-6 bg-space-950 rounded-2xl p-4 border border-white/5 relative">
+                            <canvas id="visualizerCanvas" class="w-full h-20"></canvas>
+                            <div class="absolute bottom-2 right-4 text-[10px] font-mono text-slate-500">
+                                Harmonic Frequency: 432 Hz
+                            </div>
+                        </div>
+
+                        <!-- Scrubber Bar -->
+                        <div class="mb-6">
+                            <div class="w-full bg-space-800 rounded-full h-1.5 cursor-pointer relative" id="progressBarContainer">
+                                <div id="progressBar" class="bg-gradient-to-r from-saffron-500 to-peacock-400 h-1.5 rounded-full w-2/5 transition-all"></div>
+                            </div>
+                            <div class="flex justify-between text-[11px] font-mono text-slate-400 mt-2">
+                                <span id="currentTime">02:14</span>
+                                <span id="duration">05:48</span>
+                            </div>
+                        </div>
+
+                        <!-- Player Controls -->
+                        <div class="flex items-center justify-between">
+                            <!-- Left: Playlist quick pills -->
+                            <div class="flex items-center space-x-2">
+                                <button onclick="selectTrack(0)" class="track-btn px-2.5 py-1 rounded-lg text-xs font-mono bg-saffron-500/20 text-saffron-300 border border-saffron-500/40">Track 1</button>
+                                <button onclick="selectTrack(1)" class="track-btn px-2.5 py-1 rounded-lg text-xs font-mono bg-space-850 text-slate-400 hover:text-white border border-white/5">Track 2</button>
+                                <button onclick="selectTrack(2)" class="track-btn px-2.5 py-1 rounded-lg text-xs font-mono bg-space-850 text-slate-400 hover:text-white border border-white/5">Track 3</button>
+                            </div>
+
+                            <!-- Center: Play/Pause/Skip Controls -->
+                            <div class="flex items-center space-x-4">
+                                <button onclick="prevTrack()" class="w-10 h-10 rounded-full bg-space-850 hover:bg-space-800 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+                                    <i class="fa-solid fa-backward-step"></i>
+                                </button>
+
+                                <button id="mainPlayBtn" onclick="togglePlayPause()" class="w-14 h-14 rounded-full bg-gradient-to-r from-saffron-500 to-amber-500 hover:from-saffron-400 hover:to-amber-400 text-space-950 font-bold text-lg flex items-center justify-center transition-transform hover:scale-105 shadow-lg shadow-saffron-500/30">
+                                    <i id="playIcon" class="fa-solid fa-pause"></i>
+                                </button>
+
+                                <button onclick="nextTrack()" class="w-10 h-10 rounded-full bg-space-850 hover:bg-space-800 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+                                    <i class="fa-solid fa-forward-step"></i>
+                                </button>
+                            </div>
+
+                            <!-- Right: Volume Indicator -->
+                            <div class="flex items-center space-x-2 text-slate-400 text-xs">
+                                <i class="fa-solid fa-volume-high text-saffron-400"></i>
+                                <span class="font-mono hidden sm:inline">Soundscape: Calm</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: THE TRIAD / MEET THE MANDALI -->
+    <section id="team" class="py-28 relative tech-grid-pattern border-t border-white/10 bg-space-950">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <div class="inline-flex items-center space-x-2 text-saffron-400 font-mono text-xs uppercase tracking-widest mb-3">
+                    <i class="fa-solid fa-people-group"></i>
+                    <span>The Engineering Trinity</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-black text-white mb-4">
+                    Meet the Minds of <span class="gold-gradient-text">Er Bhajan Mandali.</span>
+                </h2>
+                <p class="text-slate-400 text-sm md:text-base">
+                    Three distinct personalities, complementary superpowers, and an unbreakable shared devotion.
+                </p>
+            </div>
+
+            <!-- Team Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- MEMBER 1: Rakesh Sharma -->
+                <div class="group rounded-3xl glass-panel p-8 border border-white/10 hover:border-aurora-purple/60 transition-all duration-500 hover:-translate-y-3 relative flex flex-col justify-between overflow-hidden shadow-xl">
+                    <div class="absolute -top-12 -right-12 w-40 h-40 bg-aurora-purple/10 rounded-full blur-3xl group-hover:bg-aurora-purple/20 transition-all"></div>
+                    
+                    <div>
+                        <!-- Avatar Badge -->
+                        <div class="relative w-28 h-28 mx-auto mb-6">
+                            <div class="w-full h-full rounded-2xl bg-gradient-to-br from-space-800 to-space-900 border-2 border-aurora-purple/40 p-1 flex items-center justify-center group-hover:border-purple-400 transition-colors shadow-lg">
+                                <div class="w-full h-full rounded-xl bg-space-900 flex flex-col items-center justify-center text-purple-400">
+                                    <i class="fa-solid fa-robot text-3xl mb-1"></i>
+                                    <span class="text-[9px] font-mono uppercase text-slate-400">QA / AI</span>
+                                </div>
+                            </div>
+                            <div class="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-aurora-purple text-white flex items-center justify-center text-xs font-bold shadow-md">
+                                <i class="fa-solid fa-bug-slash"></i>
+                            </div>
+                        </div>
+
+                        <!-- Name & Epithet -->
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-serif font-bold text-white mb-1">Rakesh Sharma</h3>
+                            <div class="text-xs font-mono font-semibold text-purple-400 tracking-wider uppercase">Salesforce Automation QA</div>
+                            <div class="inline-block mt-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20 text-xs italic font-medium">
+                                "The AI Enthusiast & Gatekeeper"
+                            </div>
+                        </div>
+
+                        <!-- Description & Quirk -->
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6 text-center">
+                            Obsessed with edge cases, self-healing test automation scripts, and next-gen AI prompt engineering. If an edge bug breathes, Rakesh Sharma has an automated test for it.
+                        </p>
+                    </div>
+
+                    <div>
+                        <!-- Favorite Bhajan Pill -->
+                        <div class="bg-space-900/90 rounded-xl p-3 border border-white/5 mb-4">
+                            <div class="text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1 flex items-center justify-between">
+                                <span>Soul Track</span>
+                                <i class="fa-solid fa-heart text-rose-400"></i>
+                            </div>
+                            <div class="text-xs font-semibold text-white">Baraj Ras</div>
+                        </div>
+
+                        <!-- Skills -->
+                        <div class="flex flex-wrap gap-1.5 justify-center font-mono text-[10px]">
+                            <span class="px-2 py-0.5 rounded bg-space-800 text-purple-300 border border-purple-500/20">Test Automation</span>
+                            <span class="px-2 py-0.5 rounded bg-space-800 text-purple-300 border border-purple-500/20">AI Agents</span>
+                            <span class="px-2 py-0.5 rounded bg-space-800 text-purple-300 border border-purple-500/20">Playwright</span>
+                        </div>
+
+                        <!-- GitHub Handle -->
+                        <div class="mt-4 flex justify-center">
+                            <a href="https://github.com/rakesh-attri" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-xl bg-space-900 hover:bg-space-850 border border-white/10 hover:border-aurora-purple/60 text-slate-300 hover:text-white text-xs font-mono transition-all group/gh shadow-sm">
+                                <i class="fa-brands fa-github text-sm text-aurora-purple group-hover/gh:text-white"></i>
+                                <span>@rakesh-attri</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-500"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEMBER 2: Shivam -->
+                <div class="group rounded-3xl glass-panel-glow p-8 border border-peacock-500/40 hover:border-peacock-400 transition-all duration-500 hover:-translate-y-3 relative flex flex-col justify-between overflow-hidden shadow-xl">
+                    <div class="absolute -top-12 -right-12 w-40 h-40 bg-peacock-500/15 rounded-full blur-3xl group-hover:bg-peacock-500/25 transition-all"></div>
+                    
+                    <div>
+                        <!-- Avatar Badge -->
+                        <div class="relative w-28 h-28 mx-auto mb-6">
+                            <div class="w-full h-full rounded-2xl bg-gradient-to-br from-space-800 to-space-900 border-2 border-peacock-500/40 p-1 flex items-center justify-center group-hover:border-peacock-400 transition-colors shadow-lg">
+                                <div class="w-full h-full rounded-xl bg-space-900 flex flex-col items-center justify-center text-peacock-400">
+                                    <i class="fa-brands fa-salesforce text-3xl mb-1"></i>
+                                    <span class="text-[9px] font-mono uppercase text-slate-400">HOST / LEAD</span>
+                                </div>
+                            </div>
+                            <div class="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-peacock-500 text-space-950 flex items-center justify-center text-xs font-bold shadow-md">
+                                <i class="fa-solid fa-headset"></i>
+                            </div>
+                        </div>
+
+                        <!-- Name & Epithet -->
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-serif font-bold text-white mb-1">Shivam</h3>
+                            <div class="text-xs font-mono font-semibold text-peacock-400 tracking-wider uppercase">Lead Salesforce Engineer</div>
+                            <div class="inline-block mt-2 px-3 py-1 rounded-full bg-peacock-500/10 text-peacock-300 border border-peacock-500/20 text-xs italic font-medium">
+                                "The Mandali Host & Anchor"
+                            </div>
+                        </div>
+
+                        <!-- Description & Quirk -->
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6 text-center">
+                            The keeper of the daily sync link and audio pipeline. Anchors architectural decisions, maintains delivery cadence, and curates the tranquil Krishna playlist without fail.
+                        </p>
+                    </div>
+
+                    <div>
+                        <!-- Favorite Bhajan Pill -->
+                        <div class="bg-space-900/90 rounded-xl p-3 border border-white/5 mb-4">
+                            <div class="text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1 flex items-center justify-between">
+                                <span>Soul Track</span>
+                                <i class="fa-solid fa-heart text-rose-400"></i>
+                            </div>
+                            <div class="text-xs font-semibold text-white">Shri Krishna Govind Hare Murari</div>
+                        </div>
+
+                        <!-- Skills -->
+                        <div class="flex flex-wrap gap-1.5 justify-center font-mono text-[10px]">
+                            <span class="px-2 py-0.5 rounded bg-space-800 text-peacock-300 border border-peacock-500/20">Salesforce Cloud</span>
+                            <span class="px-2 py-0.5 rounded bg-space-800 text-peacock-300 border border-peacock-500/20">Audio DJ</span>
+                            <span class="px-2 py-0.5 rounded bg-space-800 text-peacock-300 border border-peacock-500/20">Architecture</span>
+                        </div>
+
+                        <!-- GitHub Handle -->
+                        <div class="mt-4 flex justify-center">
+                            <a href="https://github.com/Rudrashiv1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-xl bg-space-900 hover:bg-space-850 border border-white/10 hover:border-peacock-400/60 text-slate-300 hover:text-white text-xs font-mono transition-all group/gh shadow-sm">
+                                <i class="fa-brands fa-github text-sm text-peacock-400 group-hover/gh:text-white"></i>
+                                <span>@Rudrashiv1</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-500"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEMBER 3: Bhavya -->
+                <div class="group rounded-3xl glass-panel p-8 border border-white/10 hover:border-saffron-400/60 transition-all duration-500 hover:-translate-y-3 relative flex flex-col justify-between overflow-hidden shadow-xl">
+                    <div class="absolute -top-12 -right-12 w-40 h-40 bg-saffron-500/10 rounded-full blur-3xl group-hover:bg-saffron-500/20 transition-all"></div>
+                    
+                    <div>
+                        <!-- Avatar Badge -->
+                        <div class="relative w-28 h-28 mx-auto mb-6">
+                            <div class="w-full h-full rounded-2xl bg-gradient-to-br from-space-800 to-space-900 border-2 border-saffron-500/40 p-1 flex items-center justify-center group-hover:border-saffron-400 transition-colors shadow-lg">
+                                <div class="w-full h-full rounded-xl bg-space-900 flex flex-col items-center justify-center text-saffron-400">
+                                    <i class="fa-solid fa-code text-3xl mb-1"></i>
+                                    <span class="text-[9px] font-mono uppercase text-slate-400">DEV / APEX</span>
+                                </div>
+                            </div>
+                            <div class="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-saffron-500 text-space-950 flex items-center justify-center text-xs font-bold shadow-md">
+                                <i class="fa-solid fa-masks-theater"></i>
+                            </div>
+                        </div>
+
+                        <!-- Name & Epithet -->
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-serif font-bold text-white mb-1">Bhavya</h3>
+                            <div class="text-xs font-mono font-semibold text-saffron-400 tracking-wider uppercase">Senior Salesforce Developer</div>
+                            <div class="inline-block mt-2 px-3 py-1 rounded-full bg-saffron-500/10 text-saffron-300 border border-saffron-500/20 text-xs italic font-medium">
+                                "The Meme & Dialogue Maestro"
+                            </div>
+                        </div>
+
+                        <!-- Description & Quirk -->
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6 text-center">
+                            Can debug a complex recursive Apex trigger while dropping iconic Bollywood dialogues and top-tier engineering memes that keep the team's morale soaring.
+                        </p>
+                    </div>
+
+                    <div>
+                        <!-- Favorite Bhajan Pill -->
+                        <div class="bg-space-900/90 rounded-xl p-3 border border-white/5 mb-4">
+                            <div class="text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1 flex items-center justify-between">
+                                <span>Soul Track</span>
+                                <i class="fa-solid fa-heart text-rose-400"></i>
+                            </div>
+                            <div class="text-xs font-semibold text-white">Achyutam Keshavam</div>
+                        </div>
+
+                        <!-- Skills -->
+                        <div class="flex flex-wrap gap-1.5 justify-center font-mono text-[10px]">
+                            <span class="px-2 py-0.5 rounded bg-space-800 text-saffron-300 border border-saffron-500/20">Apex Triggers</span>
+                            <span class="px-2 py-0.5 rounded bg-space-800 text-saffron-300 border border-saffron-500/20">LWC</span>
+                            <span class="px-2 py-0.5 rounded bg-space-800 text-saffron-300 border border-saffron-500/20">Memes</span>
+                        </div>
+
+                        <!-- GitHub Handle -->
+                        <div class="mt-4 flex justify-center">
+                            <a href="https://rakesh-attri.github.io/SaralForce/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-xl bg-space-900 hover:bg-space-850 border border-white/10 hover:border-saffron-400/60 text-slate-300 hover:text-white text-xs font-mono transition-all group/gh shadow-sm">
+                                <i class="fa-brands fa-github text-sm text-saffron-400 group-hover/gh:text-white"></i>
+                                <span>SaralForce</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-500"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FEATURED EXTENSION BY THE CONTRIBUTORS (JUST BELOW CONTRIBUTORS) -->
+            <div class="mt-14 max-w-4xl mx-auto rounded-3xl glass-panel-glow p-8 md:p-10 border border-peacock-500/30 relative overflow-hidden shadow-2xl">
+                <div class="absolute -top-16 -right-16 w-52 h-52 bg-peacock-500/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-16 -left-16 w-52 h-52 bg-saffron-500/10 rounded-full blur-3xl"></div>
+                
+                <div class="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+                    <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
+                        <!-- Microsoft Edge Logo -->
+                        <div class="relative shrink-0">
+                            <div class="w-20 h-20 rounded-2xl bg-space-900 border border-peacock-400/40 p-2.5 flex items-center justify-center shadow-lg shadow-peacock-500/20 hover:scale-105 transition-transform">
+                                <img src="edge-logo.png" alt="Microsoft Edge" class="w-full h-full object-contain">
+                            </div>
+                            <span class="absolute -bottom-2 -right-2 px-2 py-0.5 rounded-full bg-emerald-500 text-space-950 font-mono text-[9px] font-bold uppercase shadow">
+                                Live
+                            </span>
+                        </div>
+
+                        <div>
+                            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-peacock-500/10 border border-peacock-500/30 text-peacock-300 font-mono text-xs mb-2">
+                                <i class="fa-brands fa-edge"></i>
+                                <span>Official Microsoft Edge Add-on</span>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl font-serif font-black text-white">
+                                SaralForce <span class="peacock-gradient-text">&bull; By Er Bhajan Mandali</span>
+                            </h3>
+                            <p class="text-slate-300 text-sm mt-2 max-w-xl leading-relaxed">
+                                Our bespoke Salesforce productivity browser extension built for high-velocity developers & admins. Inspect schemas, streamline SOQL queries, and supercharge your Salesforce experience.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-3 font-mono text-[11px] justify-center sm:justify-start">
+                                <span class="px-2.5 py-0.5 rounded-md bg-space-850 text-slate-300 border border-white/5"><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Instant SOQL</span>
+                                <span class="px-2.5 py-0.5 rounded-md bg-space-850 text-slate-300 border border-white/5"><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Schema Inspector</span>
+                                <span class="px-2.5 py-0.5 rounded-md bg-space-850 text-slate-300 border border-white/5"><i class="fa-solid fa-check text-emerald-400 mr-1"></i> 100% Free</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clickable Link Button to Edge Add-on Store -->
+                    <div class="shrink-0 flex flex-col items-center sm:items-end w-full sm:w-auto">
+                        <a href="https://microsoftedge.microsoft.com/addons/detail/saralforce/nabomjoibaaoialocfpphgcmfldjmeik" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-peacock-500 to-emerald-500 hover:from-peacock-400 hover:to-emerald-400 text-space-950 font-bold text-sm uppercase tracking-wider transition-all transform hover:-translate-y-1 shadow-lg shadow-peacock-500/30 flex items-center justify-center gap-2 group">
+                            <i class="fa-brands fa-edge text-base group-hover:rotate-12 transition-transform"></i>
+                            <span>Get SaralForce on Edge</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i>
+                        </a>
+                        <span class="text-[11px] font-mono text-slate-400 mt-2">Verified Edge Extension</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: DAILY RITUAL (Timeline of a Mandali Day) -->
+    <section id="ritual" class="py-28 relative bg-space-900/70 border-t border-white/10">
+        <div class="max-w-5xl mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 text-saffron-400 font-mono text-xs uppercase tracking-widest mb-3">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>The Cadence</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-black text-white mb-4">
+                    A Day in <span class="gold-gradient-text">Er Bhajan Mandali</span>
+                </h2>
+                <p class="text-slate-400 text-sm">
+                    How high-performance sprints seamlessly synchronize with devotional peace.
+                </p>
+            </div>
+
+            <!-- Ritual Timeline -->
+            <div class="space-y-6 relative before:absolute before:inset-0 before:left-8 md:before:left-1/2 before:w-0.5 before:bg-gradient-to-b before:from-saffron-500 before:via-peacock-400 before:to-saffron-500 before:-translate-x-1/2">
+                
+                <!-- Step 1 -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="flex items-center justify-start md:justify-end w-full md:w-1/2 md:pr-10 pl-16 md:pl-0">
+                        <div class="glass-panel p-6 rounded-2xl border border-white/10 text-left md:text-right w-full">
+                            <span class="font-mono text-xs text-saffron-400 font-bold">09:30 AM IST</span>
+                            <h4 class="text-lg font-bold text-white mt-1">The Morning Chime & Standup</h4>
+                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+                                Shivam boots the open call. A sacred bell chime marks the start of the day. Sprint backlogs are prioritized as <em>Achyutam Keshavam</em> softly begins.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-saffron-500 border-4 border-space-950 flex items-center justify-center text-space-950 text-xs font-bold">
+                        1
+                    </div>
+                    <div class="hidden md:block w-1/2 pl-10"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="hidden md:block w-1/2 pr-10"></div>
+                    <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-peacock-500 border-4 border-space-950 flex items-center justify-center text-space-950 text-xs font-bold">
+                        2
+                    </div>
+                    <div class="flex items-center justify-start w-full md:w-1/2 pl-16 md:pl-10">
+                        <div class="glass-panel p-6 rounded-2xl border border-white/10 text-left w-full">
+                            <span class="font-mono text-xs text-peacock-400 font-bold">01:00 PM IST</span>
+                            <h4 class="text-lg font-bold text-white mt-1">Deep Flow Code Sprints & Memes</h4>
+                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+                                Bhavya writes Lightning Web Components while dropping comic relief dialogues. Complex SOQL queries are refactored in companionable silence.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="flex items-center justify-start md:justify-end w-full md:w-1/2 md:pr-10 pl-16 md:pl-0">
+                        <div class="glass-panel p-6 rounded-2xl border border-white/10 text-left md:text-right w-full">
+                            <span class="font-mono text-xs text-aurora-purple font-bold">04:30 PM IST</span>
+                            <h4 class="text-lg font-bold text-white mt-1">The Automation Crucible</h4>
+                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+                                Rakesh Sharma unleashes full regression suites. Edge cases are squashed immediately over the call without drafting lengthy bug tickets.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-aurora-purple border-4 border-space-950 flex items-center justify-center text-white text-xs font-bold">
+                        3
+                    </div>
+                    <div class="hidden md:block w-1/2 pl-10"></div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="hidden md:block w-1/2 pr-10"></div>
+                    <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-emerald-500 border-4 border-space-950 flex items-center justify-center text-space-950 text-xs font-bold">
+                        4
+                    </div>
+                    <div class="flex items-center justify-start w-full md:w-1/2 pl-16 md:pl-10">
+                        <div class="glass-panel p-6 rounded-2xl border border-white/10 text-left w-full">
+                            <span class="font-mono text-xs text-emerald-400 font-bold">07:30 PM IST</span>
+                            <h4 class="text-lg font-bold text-white mt-1">Green Builds & Evening Aarti</h4>
+                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+                                Code deployed to production. Build lights turn green. Gratitude offered for another productive, joyful, stress-free day.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: INTERACTIVE CHANT EASTER EGG & TESTIMONIAL / VIBE CHECK -->
+    <section class="py-20 relative bg-space-950 border-t border-white/10">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            
+            <div class="p-10 rounded-3xl glass-panel-glow border border-saffron-500/30 relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-saffron-500/10 rounded-full blur-3xl"></div>
+                
+                <i class="fa-solid fa-hands-praying text-4xl text-saffron-400 mb-4 animate-bounce"></i>
+                <h3 class="text-2xl sm:text-3xl font-serif font-black text-white mb-3">
+                    Send a Spiritual Wave to the Mandali
+                </h3>
+                <p class="text-slate-300 text-sm max-w-lg mx-auto mb-8">
+                    Click the sacred button below to offer a flower petal and chant <em>Radhe Radhe</em>. Our live counter tracks divine karma!
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="triggerChant(event)" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-saffron-500 to-amber-500 hover:from-saffron-400 hover:to-amber-400 text-space-950 font-bold text-base transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-saffron-500/30 flex items-center gap-2">
+                        <span>🌸 Chant Radhe Radhe!</span>
+                    </button>
+                    <div class="text-xs font-mono text-slate-400">
+                        Total Mantras Offered: <span id="interactiveChantCount" class="text-saffron-300 font-bold text-base">108</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: CONNECT / COLLABORATE -->
+    <section id="contact" class="py-28 relative bg-space-900 border-t border-white/10">
+        <div class="max-w-5xl mx-auto px-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                
+                <div>
+                    <div class="inline-flex items-center space-x-2 text-saffron-400 font-mono text-xs uppercase tracking-widest mb-3">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>Work With Us</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-black text-white mb-4">
+                        Need High-Octane Engineering <span class="gold-gradient-text">with Zen Focus?</span>
+                    </h2>
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-6 font-light">
+                        Whether you are architecting a massive Salesforce migration, creating in-house enterprise portals, or setting up bulletproof QA test frameworks, our remote trio brings unparalleled focus and camaraderie to your project.
+                    </p>
+
+                    <div class="space-y-3 font-mono text-xs text-slate-400">
+                        <div class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-saffron-500/10 text-saffron-400 flex items-center justify-center"><i class="fa-solid fa-envelope"></i></span>
+                            <a href="mailto:therakeshattri@gmail.com" class="hover:text-saffron-300 transition-colors">therakeshattri@gmail.com</a>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-peacock-500/10 text-peacock-400 flex items-center justify-center"><i class="fa-solid fa-location-dot"></i></span>
+                            <span>Global Remote Trio &bull; Daily Virtual Sanctum</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Connect Card -->
+                <div class="glass-panel p-8 rounded-3xl border border-white/15">
+                    <form id="connectForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Your Name / Organization</label>
+                            <input type="text" required placeholder="e.g. Acme Enterprise" class="w-full bg-space-950 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-saffron-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Your Email</label>
+                            <input type="email" required placeholder="name@company.com" class="w-full bg-space-950 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-saffron-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Project Scope</label>
+                            <select class="w-full bg-space-950 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-saffron-500 transition-colors">
+                                <option>Salesforce Development & Architecture</option>
+                                <option>In-House Enterprise Applications</option>
+                                <option>QA Automation Framework Setup</option>
+                                <option>Full Sprint Remote Pod</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Message or Blessing</label>
+                            <textarea rows="3" placeholder="Tell us about the challenge or share your favorite bhajan..." class="w-full bg-space-950 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-saffron-500 transition-colors"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-saffron-500 to-amber-500 hover:from-saffron-400 hover:to-amber-400 text-space-950 font-bold text-sm uppercase tracking-wider transition-all shadow-lg shadow-saffron-500/25">
+                            Send Connection Request
+                        </button>
+                    </form>
+                    <div id="formSuccess" class="hidden text-center py-6 text-emerald-400 font-mono text-sm">
+                        <i class="fa-solid fa-circle-check text-2xl mb-2"></i>
+                        <div>Radhe Radhe! We received your note and will reply in divine timing.</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-space-950 py-12 border-t border-white/10 relative text-slate-400 text-xs font-mono">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-8 border-b border-white/5">
+                <!-- Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-saffron-500/20 border border-saffron-500/40 flex items-center justify-center text-saffron-400">
+                        <i class="fa-solid fa-om text-base"></i>
+                    </div>
+                    <span class="font-serif font-bold text-base text-white">Er. <span class="gold-gradient-text">Bhajan Mandali</span></span>
+                </div>
+
+                <!-- Quote -->
+                <div class="text-center md:text-right italic text-slate-400 text-[11px]">
+                    "Karmanye Vadhikaraste Ma Phaleshu Kadachana" &bull; Work with devotion, detach from sprint anxiety.
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>&copy; <span id="yearSpan"></span> Er Bhajan Mandali. Crafted with devotion & enterprise precision.</p>
+                <div class="flex items-center space-x-4">
+                    <span class="text-saffron-400"><i class="fa-solid fa-code"></i> TypeScript & Apex</span>
+                    <span>&bull;</span>
+                    <span class="text-peacock-400"><i class="fa-solid fa-headphones"></i> 432 Hz Tuned</span>
+                </div>
+            </div>
+
         </div>
     </footer>
 
+    <!-- JAVASCRIPT: Player, Canvas, Ambient Audio Synthesizer, Tabs, Interactivity -->
     <script>
-        // Set current year
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Set dynamic year
+        document.getElementById('yearSpan').textContent = new Date().getFullYear();
 
         // Mobile menu toggle
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
-        // Close mobile menu on link click
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
+        // Close mobile menu on click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        /* ==========================================================
+           1. SACRED BACKGROUND DUST / STARFIELD CANVAS
+           ========================================================== */
+        const canvas = document.getElementById('sacredCanvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const particles = [];
+        const numParticles = 45;
+        for (let i = 0; i < numParticles; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 2 + 0.8,
+                speedX: (Math.random() - 0.5) * 0.4,
+                speedY: -Math.random() * 0.5 - 0.2, // float upwards like incense
+                color: Math.random() > 0.4 ? 'rgba(245, 158, 11, ' : 'rgba(56, 189, 248, ',
+                alpha: Math.random() * 0.6 + 0.2
             });
-        });
+        }
+
+        function renderParticles() {
+            ctx.clearRect(0, 0, width, height);
+            for (let p of particles) {
+                p.x += p.speedX;
+                p.y += p.speedY;
+
+                if (p.y < -10) {
+                    p.y = height + 10;
+                    p.x = Math.random() * width;
+                }
+                if (p.x < 0) p.x = width;
+                if (p.x > width) p.x = 0;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color + p.alpha + ')';
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#f59e0b';
+                ctx.fill();
+            }
+            requestAnimationFrame(renderParticles);
+        }
+        renderParticles();
+
+        /* ==========================================================
+           2. WEB AUDIO API AMBIENT SOUND GENERATOR (100% Offline / Functional!)
+           Generates peaceful meditative Tanpura/Binaural drone in 432 Hz
+           ========================================================== */
+        let audioCtx = null;
+        let ambientOsc1 = null;
+        let ambientOsc2 = null;
+        let ambientGain = null;
+        let isAmbientActive = false;
+
+        const quickAmbientBtn = document.getElementById('quickAmbientBtn');
+        const quickAmbientIcon = document.getElementById('quickAmbientIcon');
+        const quickAmbientText = document.getElementById('quickAmbientText');
+
+        function toggleAmbientAudio() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+            }
+
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            if (!isAmbientActive) {
+                // Create peaceful multi-harmonic drone (Sa & Pa chord in 432Hz tuning)
+                ambientGain = audioCtx.createGain();
+                ambientGain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+                ambientGain.gain.exponentialRampToValueAtTime(0.12, audioCtx.currentTime + 2); // soft fade in
+
+                // Root Sa ~ 136.1 Hz (Om Frequency)
+                ambientOsc1 = audioCtx.createOscillator();
+                ambientOsc1.type = 'sine';
+                ambientOsc1.frequency.setValueAtTime(136.1, audioCtx.currentTime);
+
+                // Fifth Pa ~ 204.15 Hz
+                ambientOsc2 = audioCtx.createOscillator();
+                ambientOsc2.type = 'triangle';
+                ambientOsc2.frequency.setValueAtTime(204.15, audioCtx.currentTime);
+
+                ambientOsc1.connect(ambientGain);
+                ambientOsc2.connect(ambientGain);
+                ambientGain.connect(audioCtx.destination);
+
+                ambientOsc1.start();
+                ambientOsc2.start();
+
+                isAmbientActive = true;
+                quickAmbientIcon.className = 'fa-solid fa-volume-high text-emerald-400 animate-pulse';
+                quickAmbientText.textContent = 'Ambient Drone Playing';
+                quickAmbientBtn.classList.add('border-emerald-500', 'bg-emerald-500/20', 'text-emerald-300');
+            } else {
+                if (ambientGain) {
+                    ambientGain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1);
+                    setTimeout(() => {
+                        if (ambientOsc1) ambientOsc1.stop();
+                        if (ambientOsc2) ambientOsc2.stop();
+                    }, 1000);
+                }
+                isAmbientActive = false;
+                quickAmbientIcon.className = 'fa-solid fa-bell';
+                quickAmbientText.textContent = '432Hz Ambient Focus';
+                quickAmbientBtn.classList.remove('border-emerald-500', 'bg-emerald-500/20', 'text-emerald-300');
+            }
+        }
+        quickAmbientBtn.addEventListener('click', toggleAmbientAudio);
+
+        /* ==========================================================
+           3. BHAJAN PLAYLIST & DYNAMIC STREAM / VISUALIZER
+           ========================================================== */
+        const playlist = [
+            {
+                title: 'Baraj Ras',
+                subtitle: 'B Praak & Jaani &bull; Sacred Vrindavan Sankirtan',
+                durationSec: 324,
+                currentSec: 42,
+                youtubeId: 'C8iQCmo-o_Y',
+                spotifyUrl: 'https://open.spotify.com/search/Braj%20Ras%20B%20Praak'
+            },
+            {
+                title: 'Achyutam Keshavam',
+                subtitle: 'Deep Flow LWC Architecture &bull; Sitar Harmony',
+                durationSec: 412,
+                currentSec: 45,
+                youtubeId: 'W1L55zE0pI0',
+                spotifyUrl: 'https://open.spotify.com/search/Achyutam%20Keshavam'
+            },
+            {
+                title: 'Shri Krishna Govind Hare Murari',
+                subtitle: 'Sprint Deployment Anthem &bull; Vocal & Bansuri',
+                durationSec: 348,
+                currentSec: 134,
+                youtubeId: '1jGfPkWJ-sM',
+                spotifyUrl: 'https://open.spotify.com/search/Shri%20Krishna%20Govind%20Hare%20Murari'
+            }
+        ];
+
+        let currentTrackIdx = 0;
+        let isPlaying = true;
+        let playInterval = null;
+        let isVideoMode = false;
+
+        const playerTitle = document.getElementById('playerTrackTitle');
+        const playerSub = document.getElementById('playerTrackSubtitle');
+        const tickerTrack = document.getElementById('tickerTrack');
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+        const playIcon = document.getElementById('playIcon');
+        const spotifyLink = document.getElementById('spotifyLink');
+
+        function toggleVideoMode() {
+            const videoContainer = document.getElementById('videoContainer');
+            const visualizerContainer = document.getElementById('visualizerContainer');
+            const streamFrame = document.getElementById('officialStreamFrame');
+            const btnText = document.getElementById('streamModeBtnText');
+            const track = playlist[currentTrackIdx];
+
+            isVideoMode = !isVideoMode;
+            if (isVideoMode) {
+                videoContainer.classList.remove('hidden');
+                visualizerContainer.classList.add('hidden');
+                streamFrame.src = `https://www.youtube-nocookie.com/embed/${track.youtubeId || 'C8iQCmo-o_Y'}?autoplay=1`;
+                btnText.textContent = 'Switch to Visualizer';
+            } else {
+                videoContainer.classList.add('hidden');
+                visualizerContainer.classList.remove('hidden');
+                streamFrame.src = '';
+                btnText.textContent = 'Play Official Song';
+            }
+        }
+
+        function formatTime(seconds) {
+            const m = Math.floor(seconds / 60);
+            const s = Math.floor(seconds % 60);
+            return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function updatePlayerUI() {
+            const track = playlist[currentTrackIdx];
+            playerTitle.textContent = track.title;
+            playerSub.innerHTML = track.subtitle;
+            tickerTrack.textContent = track.title + ' - B Praak';
+            durationEl.textContent = formatTime(track.durationSec);
+            currentTimeEl.textContent = formatTime(track.currentSec);
+            
+            const pct = (track.currentSec / track.durationSec) * 100;
+            progressBar.style.width = pct + '%';
+
+            if (spotifyLink && track.spotifyUrl) {
+                spotifyLink.href = track.spotifyUrl;
+            }
+
+            if (isVideoMode) {
+                const streamFrame = document.getElementById('officialStreamFrame');
+                if (streamFrame) streamFrame.src = `https://www.youtube-nocookie.com/embed/${track.youtubeId || 'C8iQCmo-o_Y'}?autoplay=1`;
+            }
+
+            // Update track pills
+            document.querySelectorAll('.track-btn').forEach((btn, idx) => {
+                if (idx === currentTrackIdx) {
+                    btn.className = 'track-btn px-2.5 py-1 rounded-lg text-xs font-mono bg-saffron-500/20 text-saffron-300 border border-saffron-500/40';
+                } else {
+                    btn.className = 'track-btn px-2.5 py-1 rounded-lg text-xs font-mono bg-space-850 text-slate-400 hover:text-white border border-white/5';
+                }
+            });
+        }
+
+        function startTrackProgress() {
+            if (playInterval) clearInterval(playInterval);
+            playInterval = setInterval(() => {
+                if (isPlaying) {
+                    const track = playlist[currentTrackIdx];
+                    track.currentSec++;
+                    if (track.currentSec >= track.durationSec) {
+                        nextTrack();
+                    } else {
+                        updatePlayerUI();
+                    }
+                }
+            }, 1000);
+        }
+
+        function togglePlayPause() {
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                playIcon.className = 'fa-solid fa-pause';
+            } else {
+                playIcon.className = 'fa-solid fa-play ml-0.5';
+            }
+        }
+
+        function selectTrack(idx) {
+            currentTrackIdx = idx;
+            updatePlayerUI();
+        }
+
+        function nextTrack() {
+            currentTrackIdx = (currentTrackIdx + 1) % playlist.length;
+            playlist[currentTrackIdx].currentSec = 0;
+            updatePlayerUI();
+        }
+
+        function prevTrack() {
+            currentTrackIdx = (currentTrackIdx - 1 + playlist.length) % playlist.length;
+            playlist[currentTrackIdx].currentSec = 0;
+            updatePlayerUI();
+        }
+
+        updatePlayerUI();
+        startTrackProgress();
+
+        /* Audio Visualizer Canvas Rendering */
+        const vCanvas = document.getElementById('visualizerCanvas');
+        const vCtx = vCanvas.getContext('2d');
+        vCanvas.width = 600;
+        vCanvas.height = 100;
+
+        let vBars = 42;
+        let barHeights = Array.from({ length: vBars }, () => Math.random() * 50 + 10);
+
+        function drawVisualizer() {
+            vCtx.clearRect(0, 0, vCanvas.width, vCanvas.height);
+            const barWidth = (vCanvas.width / vBars) - 3;
+
+            for (let i = 0; i < vBars; i++) {
+                if (isPlaying) {
+                    // simulate subtle live music wave motion
+                    barHeights[i] += (Math.random() - 0.48) * 8;
+                    barHeights[i] = Math.max(8, Math.min(85, barHeights[i]));
+                } else {
+                    barHeights[i] += (4 - barHeights[i]) * 0.1;
+                }
+
+                const grad = vCtx.createLinearGradient(0, vCanvas.height, 0, 0);
+                grad.addColorStop(0, '#f59e0b');
+                grad.addColorStop(0.5, '#38bdf8');
+                grad.addColorStop(1, '#ec4899');
+
+                vCtx.fillStyle = grad;
+                vCtx.fillRect(i * (barWidth + 3), vCanvas.height - barHeights[i], barWidth, barHeights[i]);
+            }
+            requestAnimationFrame(drawVisualizer);
+        }
+        drawVisualizer();
+
+        /* ==========================================================
+           4. INTERACTIVE CODE TABS & TEST SIMULATOR
+           ========================================================== */
+        const codeSnippets = {
+            apex: `<pre><code class="text-slate-300"><span class="text-aurora-purple font-bold">public class</span> <span class="text-saffron-400 font-bold">ErBhajanMandaliHandler</span> {
+    <span class="text-slate-500">// Invoked during high-load sprint deployment</span>
+    <span class="text-peacock-400">@InvocableMethod</span>(label=<span class="text-emerald-300">'Execute Devotion & Logic'</span>)
+    <span class="text-aurora-purple font-bold">public static void</span> <span class="text-blue-400">maintainSprintPeace</span>(List&lt;Id&gt; sprintIds) {
+        Boolean isCallActive = <span class="text-amber-400">true</span>;
+        String currentBhajan = <span class="text-emerald-300">'Achyutam Keshavam'</span>;
+        
+        <span class="text-aurora-purple">for</span> (Id sprintId : sprintIds) {
+            System.debug(LoggingLevel.INFO, <span class="text-emerald-300">'Rakesh Sharma automating QA • Shivam orchestrating • Bhavya writing LWC'</span>);
+        }
+        <span class="text-slate-500">// Result: Zero production bugs, 100% serene minds.</span>
+    }
+}</code></pre>`,
+            ts: `<pre><code class="text-slate-300"><span class="text-aurora-purple font-bold">import</span> { BhajanMandaliEngine } <span class="text-aurora-purple font-bold">from</span> <span class="text-emerald-300">'@mandali/core'</span>;
+
+<span class="text-aurora-purple font-bold">export const</span> <span class="text-saffron-400 font-bold">dailySync</span> = <span class="text-peacock-400">async</span> (): Promise&lt;<span class="text-blue-400">ZenState</span>&gt; =&gt; {
+    <span class="text-aurora-purple font-bold">const</span> pod = <span class="text-aurora-purple font-bold">new</span> BhajanMandaliEngine({
+        engineers: [<span class="text-emerald-300">'Rakesh Sharma'</span>, <span class="text-emerald-300">'Shivam'</span>, <span class="text-emerald-300">'Bhavya'</span>],
+        soundtrack: <span class="text-emerald-300">'Shri Krishna Govind Hare Murari'</span>,
+        remoteMeet: <span class="text-amber-400">true</span>
+    });
+
+    <span class="text-aurora-purple font-bold">await</span> pod.synchronizeFrequencies();
+    <span class="text-aurora-purple font-bold">return</span> pod.shipToProduction({ stressLevel: <span class="text-amber-400">0</span> });
+};</code></pre>`,
+            qa: `<pre><code class="text-slate-300"><span class="text-aurora-purple font-bold">import</span> { test, expect } <span class="text-aurora-purple font-bold">from</span> <span class="text-emerald-300">'@playwright/test'</span>;
+
+test(<span class="text-emerald-300">'Verify 100% Uptime and Divine Serenity'</span>, <span class="text-peacock-400">async</span> ({ page }) =&gt; {
+    <span class="text-aurora-purple font-bold">await</span> page.goto(<span class="text-emerald-300">'https://erbhajanmandali.internal'</span>);
+    
+    <span class="text-slate-500">// Rakesh Sharma AI-assisted regression check</span>
+    <span class="text-aurora-purple font-bold">const</span> syncStatus = page.locator(<span class="text-emerald-300">'#dailySyncStatus'</span>);
+    <span class="text-aurora-purple font-bold">await</span> expect(syncStatus).toHaveText(<span class="text-emerald-300">'Devotion & Logic Aligned'</span>);
+    <span class="text-aurora-purple font-bold">await</span> expect(page.locator(<span class="text-emerald-300">'#bugCount'</span>)).toHaveText(<span class="text-emerald-300">'0'</span>);
+});</code></pre>`
+        };
+
+        function switchTab(tabKey) {
+            ['apex', 'ts', 'qa'].forEach(t => {
+                const btn = document.getElementById('tab-' + t);
+                if (t === tabKey) {
+                    btn.className = 'px-3 py-1 rounded-md bg-space-800 text-saffron-300 font-semibold border border-saffron-500/30';
+                } else {
+                    btn.className = 'px-3 py-1 rounded-md text-slate-400 hover:text-white';
+                }
+            });
+            document.getElementById('code-content').innerHTML = codeSnippets[tabKey];
+        }
+
+        function simulateRun() {
+            const statusEl = document.getElementById('testRunStatus');
+            statusEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-saffron-400"></i> Compiling test harness & checking Apex coverage...`;
+            setTimeout(() => {
+                statusEl.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400"></i> Test execution finished: 108/108 tests PASSED (0.42s) &bull; Om Shanti`;
+            }, 900);
+        }
+
+        /* ==========================================================
+           5. INTERACTIVE CHANT: VOICE 'RADHE RADHE' + CHIME + LOTUS
+           ========================================================== */
+        let mantraCount = 108;
+        const mantraCountEl = document.getElementById('mantraCount');
+        const interactiveCountEl = document.getElementById('interactiveChantCount');
+
+        const lotusIcons = ['🌸', '🪷', '✨', '🕉️', '🦚', '💛'];
+
+        // Preload voices for immediate speech on first click
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.getVoices();
+            window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+        }
+
+        function playChantVoice() {
+            try {
+                // 1. Play serene harmonic bell tone via Web Audio API
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!audioCtx) audioCtx = new AudioCtx();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(864, now);
+                osc.frequency.exponentialRampToValueAtTime(432, now + 1.2);
+
+                gain.gain.setValueAtTime(0.2, now);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.2);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start(now);
+                osc.stop(now + 1.2);
+
+                // 2. Play clear spoken "Radhe Radhe"
+                if ('speechSynthesis' in window) {
+                    window.speechSynthesis.cancel();
+                    const utterance = new SpeechSynthesisUtterance("Radhe Radhe");
+                    utterance.rate = 0.88; // Reverent, gentle cadence
+                    utterance.pitch = 1.12; // Warm devotional pitch
+                    utterance.volume = 1.0;
+
+                    const voices = window.speechSynthesis.getVoices();
+                    const indianVoice = voices.find(v => 
+                        v.lang.toLowerCase().includes('hi') || 
+                        v.lang.toLowerCase().includes('in') ||
+                        v.name.toLowerCase().includes('india') ||
+                        v.name.toLowerCase().includes('hindi')
+                    );
+                    if (indianVoice) utterance.voice = indianVoice;
+                    window.speechSynthesis.speak(utterance);
+                }
+            } catch (err) {
+                console.warn("Chant voice feedback:", err);
+            }
+        }
+
+        function triggerChant(e) {
+            mantraCount++;
+            mantraCountEl.textContent = mantraCount;
+            interactiveCountEl.textContent = mantraCount;
+
+            // Trigger real voice "Radhe Radhe" + bell chime
+            playChantVoice();
+
+            // Spawn floating lotus petals from click position
+            const x = e.clientX || (window.innerWidth / 2);
+            const y = e.clientY || (window.innerHeight / 2);
+
+            for (let i = 0; i < 6; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal-particle';
+                petal.textContent = lotusIcons[Math.floor(Math.random() * lotusIcons.length)];
+                petal.style.left = x + 'px';
+                petal.style.top = y + 'px';
+
+                const tx = (Math.random() - 0.5) * 160 + 'px';
+                const ty = -Math.random() * 140 - 40 + 'px';
+                const rot = (Math.random() - 0.5) * 360 + 'deg';
+
+                petal.style.setProperty('--tx', tx);
+                petal.style.setProperty('--ty', ty);
+                petal.style.setProperty('--rot', rot);
+
+                document.body.appendChild(petal);
+                setTimeout(() => petal.remove(), 1600);
+            }
+        }
+
+        document.getElementById('japaCounterBtn').addEventListener('click', triggerChant);
+
+        /* ==========================================================
+           6. CONTACT FORM HANDLER
+           ========================================================== */
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('connectForm').classList.add('hidden');
+            document.getElementById('formSuccess').classList.remove('hidden');
+        }
     </script>
 </body>
 </html>
