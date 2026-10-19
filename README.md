@@ -3,6 +3,18 @@
 > **"Where Pure Logic Meets Soulful Devotion."**  
 > An enterprise software engineering sanctuary crafting scalable Salesforce architectures, intelligent QA automation, and in-house tools—anchored in the soothing vibrations of Krishna Bhajans.
 
+🌐 **Live Website**: [**https://rakesh-attri.github.io/ErBhajanMandali/**](https://rakesh-attri.github.io/ErBhajanMandali/)
+
+---
+
+## 🙏 Our Guiding Lights & Mentors (Gurujan)
+
+- **Er. Nishant Khandal** — *Revered Engineering Guru & Architectural Mentor*  
+  *The guiding force behind our technical precision, teaching us that true engineering is an act of selfless service and relentless dedication.*
+
+- **Jai Gupta** — *Guiding Light & Spiritual Mentor*  
+  *Inspiring our minds to stay spiritually centered, teaching us to maintain inner peace and compassion through every challenge and sprint.*
+
 ---
 
 ## ⚡ The Engineering Triad
