@@ -9,11 +9,13 @@
 
 ## 🙏 Our Guiding Lights & Mentors (Gurujan)
 
-- **Er. Nishant Khandal** — *Revered Engineering Guru & Architectural Mentor*  
-  *The guiding force behind our technical precision, teaching us that true engineering is an act of selfless service and relentless dedication.*
+- **Nishant Khandal** — *Manager & Director of QA / DevOps* 🏸  
+  *The guiding force behind our technical precision, automated DevOps pipelines, and relentless quality assurance across mission-critical enterprise systems.*
 
-- **Jai Gupta** — *Guiding Light & Spiritual Mentor*  
-  *Inspiring our minds to stay spiritually centered, teaching us to maintain inner peace and compassion through every challenge and sprint.*
+- **Jai Gupta** — *Salesforce Architect & AI Guru* 🏸  
+  *Architecting future-proof enterprise Salesforce platforms and unlocking next-generation AI workflows while keeping our minds tranquil and grounded.*
+
+> 🏸 **Badminton Buddies On & Off the Court**: Smashing sprint blockers and engineering enterprise Salesforce architectures with the same agility as a championship rally!
 
 ---
 
