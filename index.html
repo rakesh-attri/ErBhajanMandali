@@ -405,87 +405,170 @@
     <section id="about" class="py-28 relative border-t border-white/10 bg-space-900/60">
         <div class="max-w-6xl mx-auto px-6">
             
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
                 
-                <!-- Left Column: Visual Synthesis of 3 Engineers in Sacred Sync -->
-                <div class="lg:col-span-5 relative">
-                    <!-- Glowing frame -->
-                    <div class="relative rounded-3xl glass-panel-glow p-8 overflow-hidden">
-                        <div class="absolute top-0 right-0 w-44 h-44 bg-saffron-500/10 rounded-full blur-2xl"></div>
-                        <div class="absolute bottom-0 left-0 w-44 h-44 bg-peacock-500/10 rounded-full blur-2xl"></div>
+                <!-- Left Column: Visual Synthesis of 3 Engineers + Random Geeta Shloka Card -->
+                <div class="lg:col-span-5 flex flex-col gap-4">
+                    
+                    <!-- CARD 1: Random Geeta Shloka Card (Shrimad Bhagavad Gita in Hindi) -->
+                    <div class="relative rounded-2xl glass-panel-glow p-5 sm:p-5 overflow-hidden border border-saffron-500/30 shadow-xl transition-all hover:border-saffron-500/50">
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-saffron-500/10 rounded-full blur-xl pointer-events-none"></div>
+                        <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-peacock-500/10 rounded-full blur-xl pointer-events-none"></div>
+
+                        <!-- Header -->
+                        <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-3">
+                            <div class="flex items-center space-x-2.5">
+                                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-saffron-500/20 via-space-850 to-peacock-500/20 border border-saffron-500/40 flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(245,158,11,0.2)]">
+                                    <!-- Krishna & Arjun Divine Chariot Rath Emblem -->
+                                    <svg class="w-6 h-6" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="32" cy="32" r="30" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+                                        <circle cx="32" cy="42" r="13" stroke="#fbbf24" stroke-width="2"/>
+                                        <circle cx="32" cy="42" r="2.5" fill="#fbbf24"/>
+                                        <path d="M32 29 L32 55 M19 42 L45 42 M23 33 L41 51 M23 51 L41 33" stroke="#fbbf24" stroke-width="1.2"/>
+                                        <!-- Lord Krishna peacock crest -->
+                                        <path d="M22 18 C20 12, 26 10, 28 14 C29 18, 24 20, 22 20 Z" fill="#06b6d4"/>
+                                        <circle cx="25" cy="15" r="1.5" fill="#fbbf24"/>
+                                        <!-- Krishna & Arjun heads -->
+                                        <circle cx="24" cy="23" r="4.5" fill="#38bdf8"/>
+                                        <circle cx="40" cy="22" r="4" fill="#f59e0b"/>
+                                        <!-- Gandiva Bow -->
+                                        <path d="M43 14 C47 20, 47 28, 43 33" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round"/>
+                                        <line x1="43" y1="14" x2="43" y2="33" stroke="#94a3b8" stroke-width="0.7"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="font-serif font-black text-white text-sm tracking-wide">श्रीमद्भगवद्गीता</span>
+                                        <span class="text-[9px] font-mono uppercase bg-saffron-500/15 text-saffron-300 px-1.5 py-0.2 rounded border border-saffron-500/30">दैनिक अमृत</span>
+                                    </div>
+                                    <span class="text-[10px] font-mono text-slate-400">श्रीकृष्णार्जुन संवाद &bull; 700 श्लोक</span>
+                                </div>
+                            </div>
+
+                            <!-- Next Shloka Button -->
+                            <button id="nextShlokaBtn" onclick="nextRandomShloka()" class="px-2.5 py-1 rounded-lg bg-saffron-500/20 hover:bg-saffron-500 text-saffron-300 hover:text-space-950 border border-saffron-500/40 text-[11px] font-mono font-semibold flex items-center gap-1.5 transition-all shadow-sm active:scale-95 group" title="अगला श्लोक देखें (Next Random Shloka)">
+                                <i id="shlokaSpinIcon" class="fa-solid fa-arrows-rotate text-[10px] group-hover:rotate-180 transition-transform duration-500"></i>
+                                <span>नया श्लोक</span>
+                            </button>
+                        </div>
+
+                        <!-- Chapter & Verse Badge -->
+                        <div class="flex items-center justify-between mb-2">
+                            <span id="gitaBadge" class="text-[10px] font-mono font-bold uppercase tracking-wider text-saffron-400 bg-saffron-500/10 px-2 py-0.5 rounded border border-saffron-500/20">
+                                अध्याय २, श्लोक ४७ &bull; सांख्ययोग
+                            </span>
+                            <span id="gitaChMeaning" class="text-[10px] font-mono text-slate-400 hidden sm:inline truncate max-w-[170px]">
+                                गीता का सार
+                            </span>
+                        </div>
+
+                        <!-- Shloka Sanskrit -->
+                        <div class="my-2 px-3 py-2 rounded-xl bg-space-950/70 border border-saffron-500/20 text-center">
+                            <p id="gitaSanskrit" class="font-serif text-xs sm:text-[13px] text-amber-200 font-bold leading-relaxed tracking-wide italic">
+                                कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।<br>
+                                मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥
+                            </p>
+                        </div>
+
+                        <!-- Hindi Translation (अनुवाद) -->
+                        <div class="bg-space-900/80 rounded-xl p-2.5 sm:p-3 border border-white/5">
+                            <div class="text-[10px] font-mono uppercase tracking-wider text-saffron-400 mb-1 flex items-center justify-between">
+                                <span class="flex items-center gap-1"><i class="fa-solid fa-feather-pointed text-saffron-400"></i> हिन्दी भावार्थ :</span>
+                                <span class="text-[9px] text-slate-500">सम्पूर्ण गीता संग्रह</span>
+                            </div>
+                            <p id="gitaHindi" class="text-xs text-slate-300 leading-relaxed font-sans font-light">
+                                तेरा कर्म करने में ही अधिकार है, उसके फलों में कभी नहीं। इसलिए तू फल की दृष्टि से कर्म मत कर और न ही तेरी अकर्म में आसक्ति हो।
+                            </p>
+                        </div>
+
+                        <!-- Card Footer with Krishna & Arjun Indicator -->
+                        <div class="mt-2.5 pt-2 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
+                            <span class="flex items-center gap-1.5 text-peacock-300">
+                                <i class="fa-solid fa-om text-saffron-400"></i>
+                                <span>पार्थसारथी श्रीकृष्ण &bull; धनुर्धर अर्जुन</span>
+                            </span>
+                            <span id="gitaCounter" class="text-slate-500">श्लोक ४७ / ७००</span>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2: Reduced & Compact Live Audio Discord / Meet Card -->
+                    <div class="relative rounded-2xl glass-panel-glow p-4 sm:p-5 overflow-hidden border border-white/10">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-saffron-500/5 rounded-full blur-xl pointer-events-none"></div>
+                        <div class="absolute bottom-0 left-0 w-32 h-32 bg-peacock-500/5 rounded-full blur-xl pointer-events-none"></div>
                         
-                        <!-- Header of card -->
-                        <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-6 font-mono text-xs text-slate-400">
+                        <!-- Header of Discord Card -->
+                        <div class="flex items-center justify-between pb-2.5 border-b border-white/10 mb-3 font-mono text-xs text-slate-400">
                             <span class="flex items-center gap-2">
                                 <i class="fa-solid fa-satellite-dish text-emerald-400 animate-pulse"></i>
                                 LIVE AUDIO DISCORD / MEET
                             </span>
-                            <span class="text-saffron-400 font-semibold">24/7 SYNC</span>
+                            <span class="text-saffron-400 font-semibold text-[11px]">24/7 SYNC</span>
                         </div>
 
-                        <!-- Trio Visual Diagram -->
-                        <div class="space-y-4">
+                        <!-- Trio Visual Diagram (Compact) -->
+                        <div class="space-y-2">
                             <!-- Member 1: Rakesh Sharma -->
-                            <div class="p-3.5 rounded-2xl bg-space-850/80 border border-aurora-purple/20 flex items-center justify-between hover:border-aurora-purple/50 transition-colors">
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 rounded-xl bg-aurora-purple/20 border border-aurora-purple/30 flex items-center justify-center text-aurora-purple">
+                            <div class="p-2 sm:p-2.5 rounded-xl bg-space-850/80 border border-aurora-purple/20 flex items-center justify-between hover:border-aurora-purple/50 transition-colors">
+                                <div class="flex items-center space-x-2.5">
+                                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-aurora-purple/20 border border-aurora-purple/30 flex items-center justify-center text-aurora-purple text-xs shrink-0">
                                         <i class="fa-solid fa-robot"></i>
                                     </div>
                                     <div>
-                                        <div class="font-bold text-sm text-white flex items-center gap-1.5">
+                                        <div class="font-bold text-xs text-white flex items-center gap-1.5">
                                             Rakesh Sharma
-                                            <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-aurora-purple/20 text-purple-300">AI & QA</span>
+                                            <span class="text-[9px] font-mono px-1 py-0.2 rounded bg-aurora-purple/20 text-purple-300">AI & QA</span>
                                         </div>
-                                        <div class="text-xs text-slate-400 italic">"The Edge-Case Hunter"</div>
+                                        <div class="text-[10px] text-slate-400 italic">"The Edge-Case Hunter"</div>
                                     </div>
                                 </div>
-                                <span class="text-emerald-400 text-xs font-mono"><i class="fa-solid fa-check-double"></i> Automated</span>
+                                <span class="text-emerald-400 text-[11px] font-mono shrink-0"><i class="fa-solid fa-check-double text-[10px]"></i> Automated</span>
                             </div>
 
                             <!-- Member 2: Shivam -->
-                            <div class="p-3.5 rounded-2xl bg-space-850/80 border border-peacock-500/20 flex items-center justify-between hover:border-peacock-400/50 transition-colors">
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 rounded-xl bg-peacock-500/20 border border-peacock-500/30 flex items-center justify-center text-peacock-400">
+                            <div class="p-2 sm:p-2.5 rounded-xl bg-space-850/80 border border-peacock-500/20 flex items-center justify-between hover:border-peacock-400/50 transition-colors">
+                                <div class="flex items-center space-x-2.5">
+                                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-peacock-500/20 border border-peacock-500/30 flex items-center justify-center text-peacock-400 text-xs shrink-0">
                                         <i class="fa-brands fa-salesforce"></i>
                                     </div>
                                     <div>
-                                        <div class="font-bold text-sm text-white flex items-center gap-1.5">
+                                        <div class="font-bold text-xs text-white flex items-center gap-1.5">
                                             Shivam
-                                            <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-peacock-500/20 text-peacock-300">Mandali Host</span>
+                                            <span class="text-[9px] font-mono px-1 py-0.2 rounded bg-peacock-500/20 text-peacock-300">Mandali Host</span>
                                         </div>
-                                        <div class="text-xs text-slate-400 italic">"The Steady Anchor"</div>
+                                        <div class="text-[10px] text-slate-400 italic">"The Steady Anchor"</div>
                                     </div>
                                 </div>
-                                <span class="text-emerald-400 text-xs font-mono"><i class="fa-solid fa-microphone-lines"></i> Streaming</span>
+                                <span class="text-emerald-400 text-[11px] font-mono shrink-0"><i class="fa-solid fa-microphone-lines text-[10px]"></i> Streaming</span>
                             </div>
 
                             <!-- Member 3: Bhavya -->
-                            <div class="p-3.5 rounded-2xl bg-space-850/80 border border-saffron-500/20 flex items-center justify-between hover:border-saffron-400/50 transition-colors">
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 rounded-xl bg-saffron-500/20 border border-saffron-500/30 flex items-center justify-center text-saffron-400">
+                            <div class="p-2 sm:p-2.5 rounded-xl bg-space-850/80 border border-saffron-500/20 flex items-center justify-between hover:border-saffron-400/50 transition-colors">
+                                <div class="flex items-center space-x-2.5">
+                                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-saffron-500/20 border border-saffron-500/30 flex items-center justify-center text-saffron-400 text-xs shrink-0">
                                         <i class="fa-solid fa-code"></i>
                                     </div>
                                     <div>
-                                        <div class="font-bold text-sm text-white flex items-center gap-1.5">
+                                        <div class="font-bold text-xs text-white flex items-center gap-1.5">
                                             Bhavya
-                                            <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-saffron-500/20 text-saffron-300">Apex & LWC</span>
+                                            <span class="text-[9px] font-mono px-1 py-0.2 rounded bg-saffron-500/20 text-saffron-300">Apex & LWC</span>
                                         </div>
-                                        <div class="text-xs text-slate-400 italic">"The Dialogue Maestro"</div>
+                                        <div class="text-[10px] text-slate-400 italic">"The Dialogue Maestro"</div>
                                     </div>
                                 </div>
-                                <span class="text-emerald-400 text-xs font-mono"><i class="fa-solid fa-waveform"></i> Audio On</span>
+                                <span class="text-emerald-400 text-[11px] font-mono shrink-0"><i class="fa-solid fa-waveform text-[10px]"></i> Audio On</span>
                             </div>
                         </div>
 
                         <!-- Sacred Mantra Bridge Bar -->
-                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+                        <div class="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400 font-mono">
                             <span class="flex items-center gap-1.5">
                                 <i class="fa-solid fa-om text-saffron-400"></i>
-                                <span>Chant Frequency: <strong>Hare Krishna</strong></span>
+                                <span>Chant: <strong class="text-saffron-300">Hare Krishna</strong></span>
                             </span>
-                            <span class="text-peacock-400 font-mono">Ping: 12ms</span>
+                            <span class="text-peacock-400">Ping: 12ms</span>
                         </div>
                     </div>
+
                 </div>
 
                 <!-- Right Column: Narrative Copy -->
@@ -1934,6 +2017,148 @@ test(<span class="text-emerald-300">'Verify 100% Uptime and Divine Serenity'</sp
         }
 
         document.getElementById('japaCounterBtn').addEventListener('click', triggerChant);
+
+        /* ==========================================================
+           5.5. RANDOM GEETA SHLOKA IN HINDI ENGINE (ALL 700 VERSES)
+           ========================================================== */
+        const seedGitaShlokas = [
+            {
+                ch: 2,
+                v: 47,
+                chName: 'सांख्ययोग',
+                chMeaning: 'कुरुक्षेत्र के युद्धस्थल में सैन्यनिरीक्षण एवं गीता का सार',
+                text: 'कर्मण्येवाधिकारस्ते मा फलेषु कदाचन |\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥',
+                meaning: 'तेरा कर्म करने में ही अधिकार है, उसके फलों में कभी नहीं। इसलिए तू फल की दृष्टि से कर्म मत कर और न ही तेरी अकर्म में आसक्ति हो।'
+            },
+            {
+                ch: 4,
+                v: 7,
+                chName: 'ज्ञानकर्मसंन्यासयोग',
+                chMeaning: 'भगवान् का अवतार और ज्ञान-कर्म का रहस्य',
+                text: 'यदा यदा हि धर्मस्य ग्लानिर्भवति भारत |\nअभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम् ॥',
+                meaning: 'हे भारत (अर्जुन)! जब-जब धर्म की हानि और अधर्म की वृद्धि होती है, तब-तब ही मैं अपने रूप को रचता हूँ अर्थात साकार रूप से प्रकट होता हूँ।'
+            },
+            {
+                ch: 4,
+                v: 8,
+                chName: 'ज्ञानकर्मसंन्यासयोग',
+                chMeaning: 'अवतार का दिव्य प्रयोजन',
+                text: 'परित्राणाय साधूनां विनाशाय च दुष्कृताम् |\nधर्मसंस्थापनार्थाय सम्भवामि युगे युगे ॥',
+                meaning: 'साधु पुरुषों का उद्धार करने के लिए, पाप कर्म करने वालों का विनाश करने के लिए और धर्म की भली-भाँति स्थापना करने के लिए मैं युग-युग में प्रकट हुआ करता हूँ।'
+            },
+            {
+                ch: 9,
+                v: 22,
+                chName: 'राजविद्याराजगुह्ययोग',
+                chMeaning: 'अनन्य भक्ति का परम प्रभाव',
+                text: 'अनन्याश्चिन्तयन्तो मां ये जना: पर्युपासते |\nतेषां नित्याभियुक्तानां योगक्षेमं वहाम्यहम् ॥',
+                meaning: 'जो अनन्य प्रेमी भक्तजन मेरा चिन्तन करते हुए निष्काम भाव से मेरी उपासना करते हैं, उन नित्य-युक्त पुरुषों का योगक्षेम (प्राप्ति और रक्षा) मैं स्वयं वहन करता हूँ।'
+            },
+            {
+                ch: 18,
+                v: 66,
+                chName: 'मोक्षसंन्यासयोग',
+                chMeaning: 'सर्वधर्म परित्याग और परम शरणागति',
+                text: 'सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज |\nअहं त्वा सर्वपापेभ्यो मोक्षयिष्यामि मा शुच: ॥',
+                meaning: 'संपूर्ण धर्मों को अर्थात संपूर्ण कर्तव्य कर्मों को मुझमें त्यागकर तू केवल एक मुझ सर्वशक्तिमान परमेश्वर की शरण में आ जा। मैं तुझे संपूर्ण पापों से मुक्त कर दूँगा, तू शोक मत कर।'
+            },
+            {
+                ch: 18,
+                v: 78,
+                chName: 'मोक्षसंन्यासयोग',
+                chMeaning: 'विजय, कल्याण और श्री का शाश्वत सूत्र',
+                text: 'यत्र योगेश्वर: कृष्णो यत्र पार्थो धनुर्धर: |\nतत्र श्रीर्विजयो भूतिर्ध्रुवा नीतिर्मतिर्मम ॥',
+                meaning: 'जहाँ योगेश्वर भगवान श्रीकृष्ण हैं और जहाँ गाण्डीवधनुषधारी अर्जुन हैं, वहीं पर श्री, विजय, विभूति और अचल नीति है - ऐसा मेरा मत है।'
+            }
+        ];
+
+        let allGitaShlokas = [...seedGitaShlokas];
+        let currentGitaIndex = 0;
+
+        async function loadAllGitaShlokas() {
+            try {
+                const res = await fetch('./data/gita_hindi.json');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        allGitaShlokas = data;
+                        return;
+                    }
+                }
+            } catch (err) {
+                console.warn('Local gita_hindi.json fetch error, attempting fallback:', err);
+            }
+
+            try {
+                const fallbackRes = await fetch('https://raw.githubusercontent.com/rakesh-attri/ErBhajanMandali/main/data/gita_hindi.json');
+                if (fallbackRes.ok) {
+                    const fallbackData = await fallbackRes.json();
+                    if (Array.isArray(fallbackData) && fallbackData.length > 0) {
+                        allGitaShlokas = fallbackData;
+                    }
+                }
+            } catch (err2) {
+                console.warn('Fallback gita dataset fetch error:', err2);
+            }
+        }
+
+        function displayShloka(item, animate = false) {
+            const badgeEl = document.getElementById('gitaBadge');
+            const meaningChEl = document.getElementById('gitaChMeaning');
+            const sanskritEl = document.getElementById('gitaSanskrit');
+            const hindiEl = document.getElementById('gitaHindi');
+            const counterEl = document.getElementById('gitaCounter');
+
+            if (!badgeEl || !sanskritEl || !hindiEl) return;
+
+            if (animate) {
+                sanskritEl.style.opacity = '0';
+                hindiEl.style.opacity = '0';
+                sanskritEl.style.transform = 'translateY(4px)';
+                hindiEl.style.transform = 'translateY(4px)';
+            }
+
+            setTimeout(() => {
+                badgeEl.textContent = `अध्याय ${item.ch}, श्लोक ${item.v} • ${item.chName || 'भगवद्गीता'}`;
+                if (meaningChEl) meaningChEl.textContent = item.chMeaning || '';
+                sanskritEl.innerHTML = (item.text || '').replace(/\n/g, '<br>');
+                hindiEl.textContent = item.meaning || '';
+                if (counterEl) {
+                    counterEl.textContent = `श्लोक ${item.v} (अध्याय ${item.ch}) / ${allGitaShlokas.length} संग्रह`;
+                }
+
+                if (animate) {
+                    sanskritEl.style.transition = 'all 0.3s ease-out';
+                    hindiEl.style.transition = 'all 0.3s ease-out';
+                    sanskritEl.style.opacity = '1';
+                    hindiEl.style.opacity = '1';
+                    sanskritEl.style.transform = 'translateY(0)';
+                    hindiEl.style.transform = 'translateY(0)';
+                }
+            }, animate ? 150 : 0);
+        }
+
+        function nextRandomShloka() {
+            const spinIcon = document.getElementById('shlokaSpinIcon');
+            if (spinIcon) spinIcon.classList.add('rotate-180');
+            setTimeout(() => {
+                if (spinIcon) spinIcon.classList.remove('rotate-180');
+            }, 500);
+
+            if (allGitaShlokas.length > 1) {
+                let nextIdx = Math.floor(Math.random() * allGitaShlokas.length);
+                if (nextIdx === currentGitaIndex) {
+                    nextIdx = (nextIdx + 1) % allGitaShlokas.length;
+                }
+                currentGitaIndex = nextIdx;
+            }
+            displayShloka(allGitaShlokas[currentGitaIndex], true);
+        }
+
+        // Initialize immediately
+        currentGitaIndex = Math.floor(Math.random() * seedGitaShlokas.length);
+        displayShloka(seedGitaShlokas[currentGitaIndex]);
+        loadAllGitaShlokas();
 
         /* ==========================================================
            6. CONTACT FORM HANDLER
