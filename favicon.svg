@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="22" fill="#070a13"/>
+  <rect width="98" height="98" x="1" y="1" rx="21" fill="none" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.4"/>
+  <!-- Code Curly Brace Left -->
+  <path d="M26 28 C26 20, 18 20, 18 36 C18 44, 12 48, 8 50 C12 52, 18 56, 18 64 C18 80, 26 80, 26 72" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Code Curly Brace Right -->
+  <path d="M74 28 C74 20, 82 20, 82 36 C82 44, 88 48, 92 50 C88 52, 82 56, 82 64 C82 80, 74 80, 74 72" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Divine Krishna Bansuri (Flute) -->
+  <path d="M22 68 L78 32" stroke="url(#goldGrad)" stroke-width="7" stroke-linecap="round"/>
+  <!-- Flute finger holes -->
+  <circle cx="44" cy="54" r="2.2" fill="#04060a"/>
+  <circle cx="52" cy="49" r="2.2" fill="#04060a"/>
+  <circle cx="60" cy="44" r="2.2" fill="#04060a"/>
+  <!-- Peacock Feather / Mor Pankh Crest -->
+  <path d="M70 28 C74 15, 85 14, 88 20 C90 28, 79 34, 73 35 Z" fill="url(#peacockGrad)" opacity="0.95"/>
+  <circle cx="80" cy="22" r="3.5" fill="#f59e0b"/>
+  <circle cx="80" cy="22" r="1.5" fill="#04060a"/>
+  <!-- Sacred Tilak / Bindu Top Accent -->
+  <circle cx="50" cy="20" r="3.5" fill="#f59e0b"/>
+  <defs>
+    <linearGradient id="goldGrad" x1="20" y1="70" x2="80" y2="30" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fbbf24"/>
+      <stop offset="0.5" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="peacockGrad" x1="68" y1="15" x2="90" y2="35" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06b6d4"/>
+      <stop offset="0.6" stop-color="#0284c7"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+</svg>
