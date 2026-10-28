@@ -1518,10 +1518,15 @@
 
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p>&copy; <span id="yearSpan"></span> Er Bhajan Mandali. Crafted with devotion &amp; enterprise precision.</p>
-                <div class="flex items-center space-x-4">
+                <div class="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-4">
                     <span class="text-saffron-400"><i class="fa-solid fa-code"></i> TypeScript &amp; Apex</span>
                     <span>&bull;</span>
                     <span class="text-sage-400"><i class="fa-solid fa-headphones"></i> 432 Hz Tuned</span>
+                    <span>&bull;</span>
+                    <span id="visitBadge" class="text-stone-300 inline-flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-md border border-white/10">
+                        <i class="fa-solid fa-eye text-saffron-400"></i>
+                        <span id="visitCount" class="font-bold text-white">...</span> visits
+                    </span>
                 </div>
             </div>
 
@@ -2227,8 +2232,7 @@ test(<span class="text-sage-300">'Verify 100% Uptime and Divine Serenity'</span>
         /* ==========================================================
            6. CONTACT FORM & GOOGLE SHEETS HANDLER
            ========================================================== */
-        // Paste your deployed Google Apps Script Web App URL below:
-        const GOOGLE_SHEET_SCRIPT_URL = "";
+        const GOOGLE_SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwxGBJUbr4c35YYt0ehnmWTsgFh7LyPYfpthHsPxrlr4IJo_JXFYHpCL-iR_vRzHYVF6g/exec";
 
         async function handleFormSubmit(e) {
             e.preventDefault();
@@ -2268,6 +2272,36 @@ test(<span class="text-sage-300">'Verify 100% Uptime and Divine Serenity'</span>
                 submitBtn.innerHTML = originalContent;
             }
         }
+
+        /* ==========================================================
+           7. VISITOR COUNTER & TRACKER
+           ========================================================== */
+        async function trackVisitor() {
+            const visitCountEl = document.getElementById('visitCount');
+            const visitBadge = document.getElementById('visitBadge');
+            if (!visitCountEl || !GOOGLE_SHEET_SCRIPT_URL) return;
+
+            const hasVisited = sessionStorage.getItem('visited_mandali');
+            const action = hasVisited ? 'get_count' : 'visit';
+            const page = window.location.pathname || '/';
+            const ref = document.referrer || 'Direct';
+            const ua = navigator.userAgent || '';
+
+            try {
+                const response = await fetch(`${GOOGLE_SHEET_SCRIPT_URL}?action=${action}&page=${encodeURIComponent(page)}&ref=${encodeURIComponent(ref)}&ua=${encodeURIComponent(ua)}`);
+                const data = await response.json();
+                if (data && typeof data.visits !== 'undefined') {
+                    visitCountEl.textContent = Number(data.visits).toLocaleString();
+                    sessionStorage.setItem('visited_mandali', 'true');
+                } else if (visitBadge) {
+                    visitBadge.classList.add('hidden');
+                }
+            } catch (err) {
+                // If script doesn't have doGet yet or fails, hide badge gracefully
+                if (visitBadge) visitBadge.classList.add('hidden');
+            }
+        }
+        trackVisitor();
     </script>
 </body>
 </html>
